@@ -7,6 +7,9 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 
+import com.hp.lft.report.CaptureLevel;
+import com.hp.lft.report.ReportLevel;
+import com.hp.lft.report.Reporter;
 import com.hp.lft.report.Status;
 import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.unittesting.UnitTestBase;
@@ -27,7 +30,7 @@ public class UnitTestClassBase extends UnitTestBase {
     @Before
     public void beforeTest() throws Exception {
         testSetup();
-//        SeleniumDriver.pickWebdriver("firefox");
+        Reporter.setSnapshotCaptureLevel(CaptureLevel.All);
     }
 
     @After

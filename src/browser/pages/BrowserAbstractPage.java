@@ -19,7 +19,7 @@ public class BrowserAbstractPage {
 		// browser.fullScreen();
 	}
 
-	public void waitForPageToLoad() {
+	protected void waitForPageToLoad() {
 		int retry = 0;
 		
 		String expectedStatus="";

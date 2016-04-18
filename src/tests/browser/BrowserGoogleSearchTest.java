@@ -1,6 +1,5 @@
 package tests.browser;
 
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,14 +15,12 @@ import unittesting.UnitTestClassBase;
 
 public class BrowserGoogleSearchTest extends UnitTestClassBase {
 
-	
-	//Test Data
+	// Test Data
 	private String URL;
 	private String searchTerm;
-	
-//	//Page Objects
+
+	// //Page Objects
 	public GoogleHomePage googleHomePage;
-	
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -36,31 +33,29 @@ public class BrowserGoogleSearchTest extends UnitTestClassBase {
 		globalTearDown();
 	}
 
-	//Test setup related actions
+	// Test setup related actions
 	@Before
 	public void setUp() throws Exception {
 		URL = "https://www.google.com/ncr";
 		searchTerm = "evozon";
 
-		 browser = BrowserFactory.launch(BrowserType.CHROME);
-		 googleHomePage = new GoogleHomePage(browser);
-		 
+		browser = BrowserFactory.launch(BrowserType.CHROME);
+		googleHomePage = new GoogleHomePage(browser);
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
-	
 
-	//Test scenario related actions
+	// Test scenario related actions
 	@Test
 	public void googleSearchTest() throws GeneralLeanFtException {
 		googleHomePage.navigateTo(URL);
 		googleHomePage.inputSearchTerm(searchTerm);
 		googleHomePage.clickOnSearchButton();
-//		Assert.assertTrue("Something is good",false);
-		
+		// Assert.assertTrue("Something is good",false);
+
 	}
 
 }
- 
