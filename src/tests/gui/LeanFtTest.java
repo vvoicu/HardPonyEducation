@@ -1,16 +1,15 @@
 package tests.gui;
 
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.hp.lft.sdk.*;
-import com.hp.lft.verifications.*;
-import unittesting.*;
+
+import com.hp.lft.sdk.GeneralLeanFtException;
+
+import unittesting.UnitTestClassBase;
 
 public class LeanFtTest extends UnitTestClassBase {
 

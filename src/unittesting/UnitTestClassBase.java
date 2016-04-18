@@ -8,11 +8,13 @@ import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 
 import com.hp.lft.report.Status;
+import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.unittesting.UnitTestBase;
 
-import selenium.config.SeleniumDriver;
-
 public class UnitTestClassBase extends UnitTestBase {
+	
+
+	protected Browser browser;
 
     protected static UnitTestClassBase instance;
 
@@ -31,6 +33,7 @@ public class UnitTestClassBase extends UnitTestBase {
     @After
     public void afterTest() throws Exception {
         testTearDown();
+        browser.close();
     }
 
     public static void globalTearDown() throws Exception {
