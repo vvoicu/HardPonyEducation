@@ -1,0 +1,366 @@
+<Results>
+    <GeneralInfo>
+        <Name/>
+        <RunStartTime>2016-04-18 05:30:45.519</RunStartTime>
+        <Timezone>Pacific Standard Time</Timezone>
+        <OrchestrationToolName>JUnit</OrchestrationToolName>
+        <OrchestrationToolVersion/>
+        <ReportTitle>LeanFT Report</ReportTitle>
+    </GeneralInfo>
+    <ReportNode type="Run">
+        <Data>
+            <Name>Run Results</Name>
+            <Description><![CDATA[ ]]></Description>
+            <StartTime>2016-04-18 05:30:45.519</StartTime>
+            <Result>Passed</Result>
+            <Links/>
+            <Duration>4</Duration>
+            <Extension>
+                <Any>
+                    <IconKey>Run</IconKey>
+                    <IsHtmlErrorText>true</IsHtmlErrorText>
+                </Any>
+            </Extension>
+            <Environment>
+                <OSInfo>Microsoft Windows NT 6.2.9200.0</OSInfo>
+                <HostName>DESKTOP-14FGNF5</HostName>
+                <NumberOfCores>4</NumberOfCores>
+                <CpuInfo/>
+                <TotalMemory>5539</TotalMemory>
+                <Locale>en-US</Locale>
+                <Timezone>Pacific Standard Time</Timezone>
+                <User>Darko</User>
+            </Environment>
+            <TestedApplication/>
+            <ToolName>LeanFT</ToolName>
+        </Data>
+        <ReportNode type="Package">
+            <Data>
+                <Name>tests.browser</Name>
+                <Description><![CDATA[Version: N/A]]></Description>
+                <StartTime>2016-04-18 05:30:45.581</StartTime>
+                <Result>Passed</Result>
+                <Links/>
+                <Duration>4</Duration>
+                <Extension>
+                    <Any>
+                        <IconKey>Package</IconKey>
+                        <IsHtmlErrorText>true</IsHtmlErrorText>
+                    </Any>
+                </Extension>
+            </Data>
+            <ReportNode type="Class">
+                <Data>
+                    <Name>tests.browser.BrowserGoogleSearchTest</Name>
+                    <Description/>
+                    <StartTime>2016-04-18 05:30:45.581</StartTime>
+                    <Result>Passed</Result>
+                    <Links/>
+                    <Duration>4</Duration>
+                    <Extension>
+                        <Any>
+                            <IconKey>Class</IconKey>
+                            <IsHtmlErrorText>true</IsHtmlErrorText>
+                        </Any>
+                    </Extension>
+                </Data>
+                <ReportNode type="Test">
+                    <Data>
+                        <Name>googleSearchTest</Name>
+                        <Description/>
+                        <StartTime>2016-04-18 05:30:45.581</StartTime>
+                        <Result>Passed</Result>
+                        <Links/>
+                        <Duration>4</Duration>
+                        <Extension>
+                            <Any>
+                                <IconKey>Test</IconKey>
+                                <IsHtmlErrorText>true</IsHtmlErrorText>
+                            </Any>
+                        </Extension>
+                    </Data>
+                    <ReportNode type="Step">
+                        <Data>
+                            <Name>Browser.launch</Name>
+                            <Description><![CDATA[<style>.ex-table{border-collapse: collapse !important;width: auto;height: auto;}.ex-table,.ex-table tr,.ex-table td{border: 1px solid #c6c6c6;}.ex-table td{padding: 5px 10px;vertical-align: top;width: auto;}.ex-table .ex-name{font-size: 13px;font-weight: bold;background-color: #f3f3f3;white-space: nowrap;}.ex-table .ex-value{color: #5a5a5a;}</style><table class='ex-table'><tr><td class='ex-name'>arg0</td><td class='ex-value'>&quot;CHROME&quot;</td></tr></table>]]></Description>
+                            <StartTime>2016-04-18 05:30:45.597</StartTime>
+                            <Result>Passed</Result>
+                            <Links/>
+                            <Duration>0</Duration>
+                            <Extension>
+                                <Any>
+                                    <TestObject>
+                                        <Path/>
+                                        <Operation>launch</Operation>
+                                        <OperationData><![CDATA[<style>.ex-table{border-collapse: collapse !important;width: auto;height: auto;}.ex-table,.ex-table tr,.ex-table td{border: 1px solid #c6c6c6;}.ex-table td{padding: 5px 10px;vertical-align: top;width: auto;}.ex-table .ex-name{font-size: 13px;font-weight: bold;background-color: #f3f3f3;white-space: nowrap;}.ex-table .ex-value{color: #5a5a5a;}</style><table class='ex-table'><tr><td class='ex-name'>arg0</td><td class='ex-value'>&quot;CHROME&quot;</td></tr></table>]]></OperationData>
+                                        <Properties/>
+                                    </TestObject>
+                                    <IsHtmlErrorText>true</IsHtmlErrorText>
+                                    <IconKey>Browser</IconKey>
+                                    <CustomUIElements>
+                                        <DescriptionLabel>Data</DescriptionLabel>
+                                        <FlowTreeNodeCaption>Browser.&lt;span class='emphasis'&gt;launch("Chrome")&lt;/span&gt;</FlowTreeNodeCaption>
+                                        <FlowTreeNodeTooltip>Browser.launch("Chrome")</FlowTreeNodeTooltip>
+                                    </CustomUIElements>
+                                    <HideContextInfo>true</HideContextInfo>
+                                </Any>
+                            </Extension>
+                        </Data>
+                    </ReportNode>
+                    <ReportNode type="Context">
+                        <Data>
+                            <Name>Web.Browser.Browser</Name>
+                            <Description/>
+                            <StartTime>2016-04-18 05:30:48.500</StartTime>
+                            <Result>Passed</Result>
+                            <Links/>
+                            <Duration>1</Duration>
+                            <Extension>
+                                <Any>
+                                    <TestObject>
+                                        <Path>
+                                            <Object>
+                                                <Type>Web.Browser</Type>
+                                                <Name><![CDATA[Browser]]></Name>
+                                            </Object>
+                                        </Path>
+                                        <Operation/>
+                                        <OperationData/>
+                                        <Properties/>
+                                    </TestObject>
+                                    <IsHtmlErrorText>true</IsHtmlErrorText>
+                                    <IconKey>Browser</IconKey>
+                                    <CustomUIElements>
+                                        <DescriptionLabel>Data</DescriptionLabel>
+                                    </CustomUIElements>
+                                    <HideContextInfo>true</HideContextInfo>
+                                </Any>
+                            </Extension>
+                        </Data>
+                        <ReportNode type="Step">
+                            <Data>
+                                <Name>Browser.navigate</Name>
+                                <Description><![CDATA[<style>.ex-table{border-collapse: collapse !important;width: auto;height: auto;}.ex-table,.ex-table tr,.ex-table td{border: 1px solid #c6c6c6;}.ex-table td{padding: 5px 10px;vertical-align: top;width: auto;}.ex-table .ex-name{font-size: 13px;font-weight: bold;background-color: #f3f3f3;white-space: nowrap;}.ex-table .ex-value{color: #5a5a5a;}</style><table class='ex-table'><tr><td class='ex-name'>arg0</td><td class='ex-value'>&quot;https://www.google.com/ncr&quot;</td></tr></table>]]></Description>
+                                <StartTime>2016-04-18 05:30:48.238</StartTime>
+                                <Result>Passed</Result>
+                                <Links/>
+                                <Duration>1</Duration>
+                                <Extension>
+                                    <Any>
+                                        <TestObject>
+                                            <Path>
+                                                <Object>
+                                                    <Type>Web.Browser</Type>
+                                                    <Name><![CDATA[Browser]]></Name>
+                                                </Object>
+                                            </Path>
+                                            <Operation>navigate</Operation>
+                                            <OperationData><![CDATA[<style>.ex-table{border-collapse: collapse !important;width: auto;height: auto;}.ex-table,.ex-table tr,.ex-table td{border: 1px solid #c6c6c6;}.ex-table td{padding: 5px 10px;vertical-align: top;width: auto;}.ex-table .ex-name{font-size: 13px;font-weight: bold;background-color: #f3f3f3;white-space: nowrap;}.ex-table .ex-value{color: #5a5a5a;}</style><table class='ex-table'><tr><td class='ex-name'>arg0</td><td class='ex-value'>&quot;https://www.google.com/ncr&quot;</td></tr></table>]]></OperationData>
+                                            <Properties>
+                                                <Property>
+                                                    <Name><![CDATA[Type]]></Name>
+                                                    <Value><![CDATA[Chrome]]></Value>
+                                                </Property>
+                                                <Property>
+                                                    <Name><![CDATA[Version]]></Name>
+                                                    <Value><![CDATA[50.0]]></Value>
+                                                </Property>
+                                            </Properties>
+                                        </TestObject>
+                                        <IsHtmlErrorText>true</IsHtmlErrorText>
+                                        <IconKey>Browser</IconKey>
+                                        <CustomUIElements>
+                                            <DescriptionLabel>Data</DescriptionLabel>
+                                        </CustomUIElements>
+                                        <Descriptive>
+                                            <TestObject>
+                                                <Path>
+                                                    <Object>
+                                                        <Type>Web.Browser</Type>
+                                                        <Name><![CDATA[Browser]]></Name>
+                                                        <IconKey>Browser</IconKey>
+                                                    </Object>
+                                                </Path>
+                                            </TestObject>
+                                        </Descriptive>
+                                        <HideContextInfo>true</HideContextInfo>
+                                    </Any>
+                                </Extension>
+                            </Data>
+                        </ReportNode>
+                    </ReportNode>
+                    <ReportNode type="Context">
+                        <Data>
+                            <Name>Web.Browser.Google</Name>
+                            <Description/>
+                            <StartTime>2016-04-18 05:30:49.470</StartTime>
+                            <Result>Passed</Result>
+                            <Links/>
+                            <Duration>0</Duration>
+                            <Extension>
+                                <Any>
+                                    <TestObject>
+                                        <Path>
+                                            <Object>
+                                                <Type>Web.Browser</Type>
+                                                <Name><![CDATA[Google]]></Name>
+                                            </Object>
+                                        </Path>
+                                        <Operation/>
+                                        <OperationData/>
+                                        <Properties/>
+                                    </TestObject>
+                                    <IsHtmlErrorText>true</IsHtmlErrorText>
+                                    <IconKey>Browser</IconKey>
+                                    <CustomUIElements>
+                                        <DescriptionLabel>Data</DescriptionLabel>
+                                    </CustomUIElements>
+                                    <HideContextInfo>true</HideContextInfo>
+                                </Any>
+                            </Extension>
+                        </Data>
+                        <ReportNode type="Context">
+                            <Data>
+                                <Name>Web.Page.Google</Name>
+                                <Description/>
+                                <StartTime>2016-04-18 05:30:49.469</StartTime>
+                                <Result>Passed</Result>
+                                <Links/>
+                                <Duration>1</Duration>
+                                <Extension>
+                                    <Any>
+                                        <TestObject>
+                                            <Path>
+                                                <Object>
+                                                    <Type>Web.Browser</Type>
+                                                    <Name><![CDATA[Google]]></Name>
+                                                </Object>
+                                                <Object>
+                                                    <Type>Web.Page</Type>
+                                                    <Name><![CDATA[Google]]></Name>
+                                                </Object>
+                                            </Path>
+                                            <Operation/>
+                                            <OperationData/>
+                                            <Properties/>
+                                        </TestObject>
+                                        <IsHtmlErrorText>true</IsHtmlErrorText>
+                                        <IconKey>Page</IconKey>
+                                        <CustomUIElements>
+                                            <DescriptionLabel>Data</DescriptionLabel>
+                                        </CustomUIElements>
+                                        <HideContextInfo>true</HideContextInfo>
+                                    </Any>
+                                </Extension>
+                            </Data>
+                            <ReportNode type="Context">
+                                <Data>
+                                    <Name>Web.EditField.Search</Name>
+                                    <Description/>
+                                    <StartTime>2016-04-18 05:30:49.469</StartTime>
+                                    <Result>Passed</Result>
+                                    <Links/>
+                                    <Duration>1</Duration>
+                                    <Extension>
+                                        <Any>
+                                            <TestObject>
+                                                <Path>
+                                                    <Object>
+                                                        <Type>Web.Browser</Type>
+                                                        <Name><![CDATA[Google]]></Name>
+                                                    </Object>
+                                                    <Object>
+                                                        <Type>Web.Page</Type>
+                                                        <Name><![CDATA[Google]]></Name>
+                                                    </Object>
+                                                    <Object>
+                                                        <Type>Web.EditField</Type>
+                                                        <Name><![CDATA[Search]]></Name>
+                                                    </Object>
+                                                </Path>
+                                                <Operation/>
+                                                <OperationData/>
+                                                <Properties/>
+                                            </TestObject>
+                                            <IsHtmlErrorText>true</IsHtmlErrorText>
+                                            <IconKey>EditField</IconKey>
+                                            <CustomUIElements>
+                                                <DescriptionLabel>Data</DescriptionLabel>
+                                            </CustomUIElements>
+                                            <HideContextInfo>true</HideContextInfo>
+                                        </Any>
+                                    </Extension>
+                                </Data>
+                                <ReportNode type="Step">
+                                    <Data>
+                                        <Name>Search.setValue</Name>
+                                        <Description><![CDATA[<style>.ex-table{border-collapse: collapse !important;width: auto;height: auto;}.ex-table,.ex-table tr,.ex-table td{border: 1px solid #c6c6c6;}.ex-table td{padding: 5px 10px;vertical-align: top;width: auto;}.ex-table .ex-name{font-size: 13px;font-weight: bold;background-color: #f3f3f3;white-space: nowrap;}.ex-table .ex-value{color: #5a5a5a;}</style><table class='ex-table'><tr><td class='ex-name'>arg0</td><td class='ex-value'>&quot;evozon&quot;</td></tr></table>]]></Description>
+                                        <StartTime>2016-04-18 05:30:48.513</StartTime>
+                                        <Result>Passed</Result>
+                                        <Links/>
+                                        <Duration>1</Duration>
+                                        <Extension>
+                                            <Any>
+                                                <TestObject>
+                                                    <Path>
+                                                        <Object>
+                                                            <Type>Web.Browser</Type>
+                                                            <Name><![CDATA[Google]]></Name>
+                                                        </Object>
+                                                        <Object>
+                                                            <Type>Web.Page</Type>
+                                                            <Name><![CDATA[Google]]></Name>
+                                                        </Object>
+                                                        <Object>
+                                                            <Type>Web.EditField</Type>
+                                                            <Name><![CDATA[Search]]></Name>
+                                                        </Object>
+                                                    </Path>
+                                                    <Operation>setValue</Operation>
+                                                    <OperationData><![CDATA[<style>.ex-table{border-collapse: collapse !important;width: auto;height: auto;}.ex-table,.ex-table tr,.ex-table td{border: 1px solid #c6c6c6;}.ex-table td{padding: 5px 10px;vertical-align: top;width: auto;}.ex-table .ex-name{font-size: 13px;font-weight: bold;background-color: #f3f3f3;white-space: nowrap;}.ex-table .ex-value{color: #5a5a5a;}</style><table class='ex-table'><tr><td class='ex-name'>arg0</td><td class='ex-value'>&quot;evozon&quot;</td></tr></table>]]></OperationData>
+                                                    <Properties>
+                                                        <Property>
+                                                            <Name><![CDATA[Title]]></Name>
+                                                            <Value><![CDATA[Search]]></Value>
+                                                        </Property>
+                                                    </Properties>
+                                                </TestObject>
+                                                <IsHtmlErrorText>true</IsHtmlErrorText>
+                                                <IconKey>EditField</IconKey>
+                                                <CustomUIElements>
+                                                    <DescriptionLabel>Data</DescriptionLabel>
+                                                </CustomUIElements>
+                                                <Descriptive>
+                                                    <TestObject>
+                                                        <Path>
+                                                            <Object>
+                                                                <Type>Web.Browser</Type>
+                                                                <Name><![CDATA[Google]]></Name>
+                                                                <IconKey>Browser</IconKey>
+                                                            </Object>
+                                                            <Object>
+                                                                <Type>Web.Page</Type>
+                                                                <Name><![CDATA[Google]]></Name>
+                                                                <IconKey>Page</IconKey>
+                                                            </Object>
+                                                            <Object>
+                                                                <Type>Web.EditField</Type>
+                                                                <Name><![CDATA[Search]]></Name>
+                                                                <IconKey>EditField</IconKey>
+                                                            </Object>
+                                                        </Path>
+                                                    </TestObject>
+                                                </Descriptive>
+                                                <HideContextInfo>true</HideContextInfo>
+                                            </Any>
+                                        </Extension>
+                                    </Data>
+                                </ReportNode>
+                            </ReportNode>
+                        </ReportNode>
+                    </ReportNode>
+                </ReportNode>
+            </ReportNode>
+        </ReportNode>
+    </ReportNode>
+</Results>
