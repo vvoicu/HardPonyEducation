@@ -45,7 +45,7 @@ public class BrowserGoogleSearchTest extends UnitTestClassBase {
 	// Test scenario related actions
 	@Test
 	public void googleSearchTest() throws GeneralLeanFtException {
-		googleHomePage.navigateTo(Constants.BASE_URL);
+		googleHomePage.navigateTo(Constants.CHROME_BASE_URL);
 		googleHomePage.inputSearchTerm(searchTerm);
 		googleHomePage.clickOnSearchButton();
 		// Assert.assertTrue("Something is good",false);
