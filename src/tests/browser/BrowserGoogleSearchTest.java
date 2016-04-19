@@ -1,6 +1,5 @@
 package tests.browser;
 
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -8,15 +7,14 @@ import org.junit.Test;
 
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.BrowserFactory;
-import com.hp.lft.sdk.web.BrowserType;
 
 import browser.pages.google.GoogleHomePage;
+import tools.Constants;
 import unittesting.UnitTestClassBase;
 
 public class BrowserGoogleSearchTest extends UnitTestClassBase {
 
 	// Test Data
-	private String URL;
 	private String searchTerm;
 
 	// //Page Objects
@@ -36,22 +34,18 @@ public class BrowserGoogleSearchTest extends UnitTestClassBase {
 	// Test setup related actions
 	@Before
 	public void setUp() throws Exception {
-		URL = "https://www.google.com/ncr";
+		//test data
 		searchTerm = "evozon";
 
-		browser = BrowserFactory.launch(BrowserType.CHROME);
+		//test config
+		browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
 		googleHomePage = new GoogleHomePage(browser);
-
-	}
-
-	@After
-	public void tearDown() throws Exception {
 	}
 
 	// Test scenario related actions
 	@Test
 	public void googleSearchTest() throws GeneralLeanFtException {
-		googleHomePage.navigateTo(URL);
+		googleHomePage.navigateTo(Constants.BASE_URL);
 		googleHomePage.inputSearchTerm(searchTerm);
 		googleHomePage.clickOnSearchButton();
 		// Assert.assertTrue("Something is good",false);

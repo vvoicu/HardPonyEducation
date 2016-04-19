@@ -9,6 +9,4 @@ public class GoogleResultsListPage extends BrowserAbstractPage{
 	public GoogleResultsListPage(Browser browser) {
 		super(browser);
 	}
-
-	
 }

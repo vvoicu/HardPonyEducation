@@ -8,7 +8,6 @@ import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 
 import com.hp.lft.report.CaptureLevel;
-import com.hp.lft.report.ReportLevel;
 import com.hp.lft.report.Reporter;
 import com.hp.lft.report.Status;
 import com.hp.lft.sdk.web.Browser;

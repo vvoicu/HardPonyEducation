@@ -21,12 +21,12 @@ public class GoogleHomePage extends BrowserAbstractPage{
 	
 	public void inputSearchTerm(String search) throws GeneralLeanFtException{
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(searchInput).build()).setValue(search);
-//		waitForPageToLoad();
+		waitForPageToLoad();
 	}
 	
 	public void clickOnSearchButton() throws GeneralLeanFtException{
 		browser.describe(Button.class, new ButtonDescription.Builder().cssSelector(searchButton).build()).click();
-//		waitForPageToLoad();
+		waitForPageToLoad();
 	}
 
 }
