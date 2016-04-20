@@ -9,19 +9,18 @@ import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.BrowserFactory;
 
 import browser.pages.flight.FlightHomePage;
-import tests.browser.BrowserGoogleSearchTest;
 import tools.Constants;
 import unittesting.UnitTestClassBase;
 
-public class LoginFlightAplicationTest extends UnitTestClassBase {
+public class LoginTest extends UnitTestClassBase {
 
 	// Page Objects
 	public FlightHomePage flightHomePage;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		instance = new BrowserGoogleSearchTest();
-		globalSetup(BrowserGoogleSearchTest.class);
+		instance = new LoginTest();
+		globalSetup(LoginTest.class);
 	}
 
 	@AfterClass
