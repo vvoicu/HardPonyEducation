@@ -44,13 +44,24 @@ public class FlightFinderTest extends UnitTestClassBase {
 
 	// Test scenario related actions
 	@Test
-	public void flightFinderTest() throws GeneralLeanFtException {
+	public void flightFinderTest() throws GeneralLeanFtException, InterruptedException {
 		flightFinderPage.navigateTo(Constants.FLIGHT_BASE_URL);
 		flightHomePage.inputUserName(Constants.FlyUsername);
 		flightHomePage.inputPassword(Constants.FlyPassword);
 		flightHomePage.clickSignInButton();
 		flightFinderPage.selectFlightType("One");
 		flightFinderPage.selectPassengersNumber("2");
+		flightFinderPage.selectDepartingFrom("New York");
+		flightFinderPage.selectDepartingMonth("May");
+		flightFinderPage.selectDepartingDay("18");
+		flightFinderPage.selectArrivingIn("Seattle");
+		flightFinderPage.selectArrivingMonth("July");
+		flightFinderPage.selectDepartingDay("30");
+		flightFinderPage.selectServiceClass("Business");
+		flightFinderPage.selectAirline("Unified Airlines");
+		flightFinderPage.clickContinueInButton();
+		
+		Thread.sleep(5000);
 
 	}
 
