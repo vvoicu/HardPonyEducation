@@ -1,19 +1,18 @@
 package browser.pages.flight;
 
-import org.glassfish.grizzly.nio.Selectors;
-
 import com.hp.lft.sdk.GeneralLeanFtException;
-import com.hp.lft.sdk.internal.sap.ui5.SelectTypeConvertor;
 import com.hp.lft.sdk.java.RadioButton;
-import com.hp.lft.sdk.sap.ui5.SelectType;
+import com.hp.lft.sdk.java.RadioButtonDescription;
+import com.hp.lft.sdk.mobile.DropDown;
 import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.sdk.web.Button;
 import com.hp.lft.sdk.web.ButtonDescription;
 import com.hp.lft.sdk.web.EditField;
 import com.hp.lft.sdk.web.EditFieldDescription;
-import com.hp.lft.sdk.web.WebElement;
-import com.hp.lft.sdk.web.WebElementDescription;
-import com.hp.lft.sdk.wpf.RadioButtonDescription;
+import com.hp.lft.sdk.web.ListBox;
+import com.hp.lft.sdk.web.ListBoxDescription;
+import com.hp.lft.sdk.web.RadioGroup;
+import com.hp.lft.sdk.web.RadioGroupDescription;
 
 import browser.pages.BrowserAbstractPage;
 
@@ -24,7 +23,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 	}
 
 	private String roundTripFlightRadioBtn = "input[value='roundtrip']";
-	private String oneWayFlightRadioBtn = "input[value='oneway']";
+	private String oneWayFlightRadioBtn = "input[value*='oneway']";
 	private String selectPassagersCount = "select[name='passCount']";
 	private String selectDepartingFrom = "select[name='fromPort']";
 	private String selectDepartingMonth = "select[name='fromMonth']";
@@ -39,18 +38,21 @@ public class FlightFinderPage extends BrowserAbstractPage {
 	private String continueButton = "input[name='findFlights']";
 
 	public void selectFlightType(String flightType) throws GeneralLeanFtException {
-		if (flightType.equals("Round")) {
-			browser.describe(Button.class, new ButtonDescription.Builder().cssSelector(roundTripFlightRadioBtn).build())
-					.click();
+		waitForPageToLoad();
+		if (flightType.toLowerCase().equals("round")) {
+			browser.describe(RadioGroup.class,
+					new RadioGroupDescription.Builder().cssSelector(oneWayFlightRadioBtn).build()).select("tripType");
 			waitForPageToLoad();
-		} else if (flightType.contains("One")) {
-			browser.describe(Button.class, new ButtonDescription.Builder().cssSelector(oneWayFlightRadioBtn).build())
-					.click();
+		} else if (flightType.toLowerCase().contains("one")) {
+			browser.describe(RadioGroup.class,
+					new RadioGroupDescription.Builder().cssSelector(oneWayFlightRadioBtn).build()).select("oneway");
 		}
 	}
-	
-//	public void selectPassengersNumber(String passengersNumber) throws GeneralLeanFtException{
-//		browser.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(selectPassagersCount).build().
-//	}
+
+	public void selectPassengersNumber(String passengersNumber) throws  GeneralLeanFtException{
+	 browser.describe(ListBox.class, new ListBoxDescription.Builder().cssSelector(selectPassagersCount).build()).select(passengersNumber);
+	 
+	 
+	 }
 
 }

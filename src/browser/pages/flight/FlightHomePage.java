@@ -22,13 +22,15 @@ public class FlightHomePage extends BrowserAbstractPage {
 	public void inputUserName(String username) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(usernameSelector).build())
 				.setValue(username);
-		waitForPageToLoad();
+		browser.sync();
+//		waitForPageToLoad();
 	}
 
 	public void inputPassword(String password) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(passwordSelector).build())
 				.setValue(password);
-		waitForPageToLoad();
+//		waitForPageToLoad();
+		browser.sync();
 	}
 	
 	public void clickSignInButton() throws GeneralLeanFtException{

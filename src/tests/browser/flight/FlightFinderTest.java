@@ -17,6 +17,9 @@ public class FlightFinderTest extends UnitTestClassBase {
 
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
+	
+//	FlightHomePage flightHomePage = new  FlightHomePage(browser);
+	
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -35,19 +38,20 @@ public class FlightFinderTest extends UnitTestClassBase {
 		// test config
 		browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
 		flightFinderPage = new FlightFinderPage(browser);
+		flightHomePage = new  FlightHomePage(browser);
 
 	}
-	
-	// Test scenario related actions
-			@Test
-			public void googleSearchTest() throws GeneralLeanFtException {
-				flightHomePage.navigateTo(Constants.FLIGHT_BASE_URL);
-				flightHomePage.inputUserName(Constants.FlyUsername);
-				flightHomePage.inputPassword(Constants.FlyPassword);
-				flightHomePage.clickSignInButton();
-				flightFinderPage.selectFlightType("One");
-				
 
-			}
+	// Test scenario related actions
+	@Test
+	public void flightFinderTest() throws GeneralLeanFtException {
+		flightFinderPage.navigateTo(Constants.FLIGHT_BASE_URL);
+		flightHomePage.inputUserName(Constants.FlyUsername);
+		flightHomePage.inputPassword(Constants.FlyPassword);
+		flightHomePage.clickSignInButton();
+		flightFinderPage.selectFlightType("One");
+		flightFinderPage.selectPassengersNumber("2");
+
+	}
 
 }
