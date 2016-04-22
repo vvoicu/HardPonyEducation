@@ -32,6 +32,12 @@ public class RegisterTest extends UnitTestClassBase{
 	private String address1;
 	private String address2;
 	private String cityName;
+	private String stateName;
+	private String postalCode;
+	private String country;
+	private String userName;
+	private String password;
+	private String confirmPassword;
 	
 	
 	@BeforeClass
@@ -61,6 +67,13 @@ public class RegisterTest extends UnitTestClassBase{
 		address1 = "Testing Address1";
 		address2 = "Testing Address2";
 		cityName = "Cluj-Napoca";
+		stateName = "Cluj";
+		postalCode = RandomStringGenerator.generateRandomString(6, Mode.NUMERIC);
+		country = "ROMANIA";
+		userName = RandomStringGenerator.generateRandomString(6, Mode.ALPHA);
+		password = "Testing123";
+		confirmPassword = "Testing123";
+		
 	}
 	
 	@Test
@@ -74,6 +87,12 @@ public class RegisterTest extends UnitTestClassBase{
 		registerPage.inputAddress1(address1);
 		registerPage.inputAddress2(address2);
 		registerPage.inputCityName(cityName);
-	
+		registerPage.inputStateName(stateName);
+		registerPage.inputPostalCode(postalCode);
+		registerPage.selectCountry(country);
+		registerPage.inputUserName(userName);
+		registerPage.inputPassword(password);
+		registerPage.inputConfirmPassword(confirmPassword);
+		registerPage.clickSubmitButton();
 }
 }

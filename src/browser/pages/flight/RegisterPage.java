@@ -4,6 +4,10 @@ import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.sdk.web.EditField;
 import com.hp.lft.sdk.web.EditFieldDescription;
+import com.hp.lft.sdk.web.Image;
+import com.hp.lft.sdk.web.ImageDescription;
+import com.hp.lft.sdk.web.ListBox;
+import com.hp.lft.sdk.web.ListBoxDescription;
 
 import browser.pages.BrowserAbstractPage;
 
@@ -20,6 +24,14 @@ public class RegisterPage extends BrowserAbstractPage{
 	private String address1Selector = "input[name='address1']";
 	private String address2Selector = "input[name='address2']";
 	private String citySelector = "input[name='city']";
+	private String stateSelector = "input[name='state']";
+	private String postalCodeSelector = "input[name='postalCode']";
+	private String countrySelector = "select[name='country']";
+	private String userNameSelector = "input[id='email']";
+	private String passwordSelector = "input[name='password']";
+	private String confirmPasswordSelector = "input[name='confirmPassword']";
+	private String submitButtonSelector = "input[name='register']";
+ 	
 	
 	
 	public void inputFirstName(String firstName) throws GeneralLeanFtException {
@@ -31,35 +43,73 @@ public class RegisterPage extends BrowserAbstractPage{
 	public void inputLastName(String lastName) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(lastNameSelector).build())
 				.setValue(lastName);
-		browser.sync();	
+//		browser.sync();	
 	}
 	
 	public void inputPhoneNumber(String phone) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(phoneSelector).build())
 				.setValue(phone);
-		browser.sync();	
+//		browser.sync();	
 	}
 	
 	public void inputEmailAddress(String email) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(emailSelector).build())
 				.setValue(email);
-		browser.sync();	
+//		browser.sync();	
 			System.out.println("The email address is: " + email);
 	}
 	
 	public void inputAddress1 (String address1) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(address1Selector).build()).setValue(address1);
-		browser.sync();	
+//		browser.sync();	
 	}
 	
 	public void inputAddress2 (String address2) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(address2Selector).build()).setValue(address2);
-		browser.sync();		
+//		browser.sync();		
 	}
 
 	public void inputCityName (String cityName) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(citySelector).build()).setValue(cityName);
-		browser.sync();
+//		browser.sync();
 	}
+	
+	public void inputStateName (String stateName) throws GeneralLeanFtException {
+		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(stateSelector).build()).setValue(stateName);
+//		browser.sync();
+	}
+	
+	public void inputPostalCode (String postalCode) throws GeneralLeanFtException {
+		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(postalCodeSelector).build()).setValue(postalCode);
+//		browser.sync();
+		System.out.println("The Postal Code is: " + postalCode);
+	}
+	
+
+	
+	public void selectCountry(String country) throws GeneralLeanFtException {
+		browser.describe(ListBox.class, new ListBoxDescription.Builder().cssSelector(countrySelector).build())
+				.select(country);
+	}
+	
+	public void inputUserName(String userName) throws GeneralLeanFtException {
+		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(userNameSelector).build()).setValue(userName);
+		System.out.println("The username is: " + userName);
+	}
+	
+	public void inputPassword(String password) throws GeneralLeanFtException {
+		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(passwordSelector).build()).setValue(password);	
+	}
+	
+	public void inputConfirmPassword(String confirmPassword) throws GeneralLeanFtException {
+		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(confirmPasswordSelector).build()).setValue(confirmPassword);
+	}
+
+	public void clickSubmitButton() throws GeneralLeanFtException {
+		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(submitButtonSelector).build()).click();
+	}
+
+	
 }
+
 
