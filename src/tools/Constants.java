@@ -8,6 +8,7 @@ public class Constants {
 	public static final String FLIGHT_BASE_URL = "http://newtours.demoaut.com/";
 	public static final String CHROME_BASE_URL = "https://www.google.com/ncr";
 //	public static final BrowserType BROWSER_TYPE = BrowserType.CHROME;
+//	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
 	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
 
 	public static final long WEBDRIVER_IMPLICIT_WAIT = 30;

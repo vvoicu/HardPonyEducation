@@ -49,10 +49,10 @@ public class FlightFinderPage extends BrowserAbstractPage {
 		}
 	}
 
-	public void selectPassengersNumber(String passengersNumber) throws  GeneralLeanFtException{
-	 browser.describe(ListBox.class, new ListBoxDescription.Builder().cssSelector(selectPassagersCount).build()).select(passengersNumber);
-	 
-	 
-	 }
+	public void selectPassengersNumber(String passengersNumber) throws GeneralLeanFtException {
+		browser.describe(ListBox.class, new ListBoxDescription.Builder().cssSelector(selectPassagersCount).build())
+				.select(passengersNumber);
+
+	}
 
 }
