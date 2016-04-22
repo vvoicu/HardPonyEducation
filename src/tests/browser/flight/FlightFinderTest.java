@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.BrowserFactory;
 
@@ -12,6 +13,7 @@ import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
 import browser.pages.flight.SelectFlightPage;
 import tools.Constants;
+import tools.Utils.StringUtils;
 import unittesting.UnitTestClassBase;
 
 public class FlightFinderTest extends UnitTestClassBase {
@@ -46,7 +48,7 @@ public class FlightFinderTest extends UnitTestClassBase {
 
 	// Test scenario related actions
 	@Test
-	public void flightFinderTest() throws GeneralLeanFtException, InterruptedException {
+	public void flightFinderTest() throws GeneralLeanFtException, InterruptedException, ReportException {
 		flightFinderPage.navigateTo(Constants.FLIGHT_BASE_URL);
 		flightHomePage.inputUserName(Constants.FlyUsername);
 		flightHomePage.inputPassword(Constants.FlyPassword);
@@ -62,9 +64,10 @@ public class FlightFinderTest extends UnitTestClassBase {
 		flightFinderPage.selectServiceClass("Business");
 		flightFinderPage.selectAirline("Unified Airlines");
 		flightFinderPage.clickContinueInButton();
-		selectFlightPage.printDepartLocation();
 
-		Thread.sleep(5000);
+		flightFinderPage.verifyCondition("Departed Location",
+				StringUtils.splitDestinationString(selectFlightPage.getDepartLocations(), "departing").equals("New York"));
+
 
 	}
 

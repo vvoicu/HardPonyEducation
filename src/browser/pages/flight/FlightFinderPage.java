@@ -33,7 +33,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 	private String continueButton = "input[name='findFlights']";
 
 	public void selectFlightType(String flightType) throws GeneralLeanFtException {
-		waitForPageToLoad();
+//		waitForPageToLoad();
 		switch (flightType.toLowerCase()) {
 		case "Round Trip":
 			browser.describe(RadioGroup.class,

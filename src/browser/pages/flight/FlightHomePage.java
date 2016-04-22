@@ -18,6 +18,7 @@ public class FlightHomePage extends BrowserAbstractPage {
 	private String usernameSelector = "input[name='userName']";
 	private String passwordSelector = "input[name='password']";
 	private String signInButtonSelector = "input[name='login']"; 
+	private String fromName = "form tr:nth-child(1)  b font font"; 
 
 	public void inputUserName(String username) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(usernameSelector).build())
@@ -36,5 +37,7 @@ public class FlightHomePage extends BrowserAbstractPage {
 	public void clickSignInButton() throws GeneralLeanFtException{
 		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(signInButtonSelector).build()).click();
 	}
+	
+//	public void 
 
 }
