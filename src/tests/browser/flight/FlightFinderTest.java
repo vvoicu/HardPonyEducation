@@ -10,6 +10,7 @@ import com.hp.lft.sdk.web.BrowserFactory;
 
 import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
+import browser.pages.flight.SelectFlightPage;
 import tools.Constants;
 import unittesting.UnitTestClassBase;
 
@@ -17,9 +18,9 @@ public class FlightFinderTest extends UnitTestClassBase {
 
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
-	
-//	FlightHomePage flightHomePage = new  FlightHomePage(browser);
-	
+	public SelectFlightPage selectFlightPage;
+
+	// FlightHomePage flightHomePage = new FlightHomePage(browser);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -38,7 +39,8 @@ public class FlightFinderTest extends UnitTestClassBase {
 		// test config
 		browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
 		flightFinderPage = new FlightFinderPage(browser);
-		flightHomePage = new  FlightHomePage(browser);
+		flightHomePage = new FlightHomePage(browser);
+		selectFlightPage = new SelectFlightPage(browser);
 
 	}
 
@@ -56,11 +58,12 @@ public class FlightFinderTest extends UnitTestClassBase {
 		flightFinderPage.selectDepartingDay("18");
 		flightFinderPage.selectArrivingIn("Seattle");
 		flightFinderPage.selectArrivingMonth("July");
-		flightFinderPage.selectDepartingDay("30");
+		flightFinderPage.selectArrivingDay("30");
 		flightFinderPage.selectServiceClass("Business");
 		flightFinderPage.selectAirline("Unified Airlines");
 		flightFinderPage.clickContinueInButton();
-		
+		selectFlightPage.printDepartLocation();
+
 		Thread.sleep(5000);
 
 	}

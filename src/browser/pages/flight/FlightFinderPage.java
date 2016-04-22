@@ -1,14 +1,7 @@
 package browser.pages.flight;
 
 import com.hp.lft.sdk.GeneralLeanFtException;
-import com.hp.lft.sdk.java.RadioButton;
-import com.hp.lft.sdk.java.RadioButtonDescription;
-import com.hp.lft.sdk.mobile.DropDown;
 import com.hp.lft.sdk.web.Browser;
-import com.hp.lft.sdk.web.Button;
-import com.hp.lft.sdk.web.ButtonDescription;
-import com.hp.lft.sdk.web.EditField;
-import com.hp.lft.sdk.web.EditFieldDescription;
 import com.hp.lft.sdk.web.Image;
 import com.hp.lft.sdk.web.ImageDescription;
 import com.hp.lft.sdk.web.ListBox;
@@ -44,7 +37,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 		switch (flightType.toLowerCase()) {
 		case "Round Trip":
 			browser.describe(RadioGroup.class,
-					new RadioGroupDescription.Builder().cssSelector(oneWayFlightRadioBtn).build()).select("tripType");
+					new RadioGroupDescription.Builder().cssSelector(roundTripFlightRadioBtn).build()).select("tripType");
 			break;
 		case "One Way":
 			browser.describe(RadioGroup.class,
