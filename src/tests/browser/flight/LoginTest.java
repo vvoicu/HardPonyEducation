@@ -5,9 +5,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.BrowserFactory;
 
+import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
 import tools.Constants;
 import unittesting.UnitTestClassBase;
@@ -16,6 +18,7 @@ public class LoginTest extends UnitTestClassBase {
 
 	// Page Objects
 	public FlightHomePage flightHomePage;
+	public FlightFinderPage flightFinderPage;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -34,16 +37,24 @@ public class LoginTest extends UnitTestClassBase {
 		// test config
 		browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
 		flightHomePage = new FlightHomePage(browser);
+		flightFinderPage = new FlightFinderPage(browser);
 
 	}
 	
 	// Test scenario related actions
 		@Test
-		public void googleSearchTest() throws GeneralLeanFtException {
+	public void googleSearchTest() throws GeneralLeanFtException, ReportException {
 			flightHomePage.navigateTo(Constants.FLIGHT_BASE_URL);
 			flightHomePage.inputUserName(Constants.FlyUsername);
 			flightHomePage.inputPassword(Constants.FlyPassword);
 			flightHomePage.clickSignInButton();
+			flightFinderPage.printFormName();
+			
+			flightFinderPage.verifyCondition("Login succes", flightFinderPage.getFormNameafterLogin().equals("Flight Details"));
+			
+			
+			
+			
 			
 			
 			

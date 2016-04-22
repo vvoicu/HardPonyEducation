@@ -6,11 +6,11 @@ public class StringUtils {
 		String[] textSplit = text.split(" to ");
 		String textSplited = "";
 		switch (type) {
-		case "departing":
+		case "from":
 			textSplited = textSplit[0];
 			break;
 
-		case "arriving":
+		case "to":
 			textSplited = textSplit[0];
 			break;
 		}

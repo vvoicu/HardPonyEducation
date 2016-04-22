@@ -17,27 +17,22 @@ public class FlightHomePage extends BrowserAbstractPage {
 
 	private String usernameSelector = "input[name='userName']";
 	private String passwordSelector = "input[name='password']";
-	private String signInButtonSelector = "input[name='login']"; 
-	private String fromName = "form tr:nth-child(1)  b font font"; 
+	private String signInButtonSelector = "input[name='login']";
 
 	public void inputUserName(String username) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(usernameSelector).build())
 				.setValue(username);
 		browser.sync();
-//		waitForPageToLoad();
 	}
 
 	public void inputPassword(String password) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(passwordSelector).build())
 				.setValue(password);
-//		waitForPageToLoad();
 		browser.sync();
 	}
-	
-	public void clickSignInButton() throws GeneralLeanFtException{
+
+	public void clickSignInButton() throws GeneralLeanFtException {
 		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(signInButtonSelector).build()).click();
 	}
-	
-//	public void 
 
 }

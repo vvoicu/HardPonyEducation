@@ -66,7 +66,9 @@ public class FlightFinderTest extends UnitTestClassBase {
 		flightFinderPage.clickContinueInButton();
 
 		flightFinderPage.verifyCondition("Departed Location",
-				StringUtils.splitDestinationString(selectFlightPage.getDepartLocations(), "departing").equals("New York"));
+				StringUtils.splitDestinationString(selectFlightPage.getDepartLocations(), "from").equals("New York"));
+		flightFinderPage.verifyCondition("Return Location",
+				StringUtils.splitDestinationString(selectFlightPage.getReturnLocations(), "from").equals("Seattle"));
 
 
 	}

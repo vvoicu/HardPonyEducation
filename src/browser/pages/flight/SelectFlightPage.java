@@ -18,6 +18,8 @@ public class SelectFlightPage extends BrowserAbstractPage {
 
 	private String continueButton = "input[name='reserveFlights']";
 	private String departFrom = "form *:nth-child(9) table:nth-child(1) td.title[align='LEFT']>b>font";
+	private String returnFrom = "form *:nth-child(10) table:nth-child(1) td.title[align='LEFT']>b>font";
+	private String firstPrice = "form *:nth-child(10) table:nth-child(1) td.title[align='LEFT']>b>font";
 
 	public String getDepartLocations() throws GeneralLeanFtException {
 		String departLocations = "";
@@ -25,11 +27,18 @@ public class SelectFlightPage extends BrowserAbstractPage {
 				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(departFrom).build())
 				.getInnerText();
 		return departLocations;
+	}
 
+	public String getReturnLocations() throws GeneralLeanFtException {
+		String departLocations = "";
+		departLocations = browser
+				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(returnFrom).build())
+				.getInnerText();
+		return departLocations;
 	}
 
 	public void printDepartLocation() throws GeneralLeanFtException {
-		System.out.println("Depart: " + StringUtils.splitDestinationString(getDepartLocations(), "departing"));
+		System.out.println("Depart: " + StringUtils.splitDestinationString(getDepartLocations(), "from"));
 	}
 
 	public void clickContinueButton() throws GeneralLeanFtException {
