@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.hp.lft.report.ReportException;
 
+import selenium.config.ReporterUtils;
 import selenium.pages.google.GoogleHomePage;
 
 public class GoogleHomeSteps extends AbstractSteps{
@@ -16,8 +17,7 @@ public class GoogleHomeSteps extends AbstractSteps{
 	
 	
 	public void inputSearchTerm(String search) throws ReportException{
-		
-		report(Thread.currentThread().getStackTrace()[1].getMethodName());
+		ReporterUtils.reportStep(Thread.currentThread().getStackTrace()[1].getMethodName());
 		googleHomePage.inputSearchTerm(search);
 	}
 
