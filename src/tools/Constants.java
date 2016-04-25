@@ -1,5 +1,7 @@
 package tools;
 
+import java.io.File;
+
 import com.hp.lft.sdk.web.BrowserType;
 
 public class Constants {
@@ -16,6 +18,7 @@ public class Constants {
 	public static final int PAGE_LOAD_MAX_RETRY = 20;
 	public static final String FlyUsername = "tutorial";
 	public static final String FlyPassword = "tutorial";
+	public static final String PICTURE_REPORT_PATH = new java.io.File("").getAbsolutePath() + File.separator + "RunResults" + File.separator + "Resources" + File.separator;
 
 
 }

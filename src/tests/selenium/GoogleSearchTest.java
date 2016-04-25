@@ -8,10 +8,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.hp.lft.sdk.GeneralLeanFtException;
+import com.hp.lft.report.ReportException;
 
 import selenium.config.SeleniumDriver;
-import selenium.pages.google.GoogleHomePage;
+import selenium.steps.GoogleHomeSteps;
 import unittesting.UnitTestClassBase;
 
 public class GoogleSearchTest extends UnitTestClassBase {
@@ -25,7 +25,7 @@ public class GoogleSearchTest extends UnitTestClassBase {
 	private String searchTerm;
 	
 	//Page Objects
-	public GoogleHomePage googleHomePage;
+	public GoogleHomeSteps googleHomeSteps;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -44,7 +44,7 @@ public class GoogleSearchTest extends UnitTestClassBase {
 		URL = "https://www.google.com/ncr";
 		searchTerm = "evozon";
 
-        googleHomePage = new GoogleHomePage(SeleniumDriver.driver);
+        googleHomeSteps = new GoogleHomeSteps(SeleniumDriver.driver);
 		
 	}
 
@@ -55,9 +55,9 @@ public class GoogleSearchTest extends UnitTestClassBase {
 	
 
 	@Test
-	public void googleSearchTest() throws GeneralLeanFtException {
-		googleHomePage.navigateTo(URL);
-		googleHomePage.inputSearchTerm(searchTerm);
+	public void googleSearchTest() throws ReportException {
+		googleHomeSteps.navigateTo(URL);
+		googleHomeSteps.inputSearchTerm(searchTerm);
 		
 		Assert.assertTrue("Something is good",true);
 //		Assert.assertTrue("Something is not good",false);
