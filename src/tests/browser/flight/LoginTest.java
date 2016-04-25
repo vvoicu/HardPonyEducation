@@ -43,7 +43,7 @@ public class LoginTest extends UnitTestClassBase {
 	
 	// Test scenario related actions
 		@Test
-	public void googleSearchTest() throws GeneralLeanFtException, ReportException {
+	public void loginTest() throws GeneralLeanFtException, ReportException {
 			flightHomePage.navigateTo(Constants.FLIGHT_BASE_URL);
 			flightHomePage.inputUserName(Constants.FlyUsername);
 			flightHomePage.inputPassword(Constants.FlyPassword);

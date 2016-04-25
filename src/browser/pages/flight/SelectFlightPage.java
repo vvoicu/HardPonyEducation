@@ -17,24 +17,41 @@ public class SelectFlightPage extends BrowserAbstractPage {
 	}
 
 	private String continueButton = "input[name='reserveFlights']";
-	private String departFrom = "form *:nth-child(9) table:nth-child(1) td.title[align='LEFT']>b>font";
-	private String returnFrom = "form *:nth-child(10) table:nth-child(1) td.title[align='LEFT']>b>font";
-	private String firstPrice = "form *:nth-child(10) table:nth-child(1) td.title[align='LEFT']>b>font";
+	private String locationDepartFrom = "form *:nth-child(9) table:nth-child(1) td.title[align='LEFT']>b>font";
+	private String dateDepartFrom = "form *:nth-child(9) table:nth-child(1) td.title[align='Right']>b>font";
+	private String locationReturnFrom = "form *:nth-child(10) table:nth-child(1) td.title[align='LEFT']>b>font";
+	private String dateReturnFrom = "form *:nth-child(10) table:nth-child(1) td.title[align='RIGHT']>b>font";
 
 	public String getDepartLocations() throws GeneralLeanFtException {
 		String departLocations = "";
 		departLocations = browser
-				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(departFrom).build())
+				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(locationDepartFrom).build())
 				.getInnerText();
 		return departLocations;
+	}
+
+	public String getDepartDate() throws GeneralLeanFtException {
+		String departDate = "";
+		departDate = browser
+				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(dateDepartFrom).build())
+				.getInnerText();
+		return departDate;
 	}
 
 	public String getReturnLocations() throws GeneralLeanFtException {
 		String departLocations = "";
 		departLocations = browser
-				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(returnFrom).build())
+				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(locationReturnFrom).build())
 				.getInnerText();
 		return departLocations;
+	}
+
+	public String getReturnDate() throws GeneralLeanFtException {
+		String returnDate = "";
+		returnDate = browser
+				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(dateReturnFrom).build())
+				.getInnerText();
+		return returnDate;
 	}
 
 	public void printDepartLocation() throws GeneralLeanFtException {
