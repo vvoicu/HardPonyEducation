@@ -22,34 +22,39 @@ public class FlightHomePage extends BrowserAbstractPage {
 
 	private String usernameSelector = "input[name='userName']";
 	private String passwordSelector = "input[name='password']";
-//<<<<<<< HEAD
+
 	private String signInButtonSelector = "input[name='login']";
 	private String registerButtonSelector = "body > div > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(2) > a";
-//=======
+
 //	private String signInButtonSelector = "input[name='login']"; 
 	private String fromName = "form tr:nth-child(1)  b font font"; 
-//>>>>>>> branch 'master' of https://github.com/vvoicu/HardPonyEducation.git
+
+//	private String signInButtonSelector = "input[name='login']";
+
 
 	public void inputUserName(String username) throws GeneralLeanFtException {
 		waitForPageToLoad();
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(usernameSelector).build())
 				.setValue(username);
 		browser.sync();
+
 		// waitForPageToLoad();
+
 	}
 
 	public void inputPassword(String password) throws GeneralLeanFtException {
 		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(passwordSelector).build())
 				.setValue(password);
+
 		// waitForPageToLoad();
+
+
 		browser.sync();
 	}
 
 	public void clickSignInButton() throws GeneralLeanFtException {
 		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(signInButtonSelector).build()).click();
 	}
-	
-//	public void 
 
 	public void clickRegisterButton() throws GeneralLeanFtException {
 		browser.describe(Link.class, new LinkDescription.Builder().cssSelector(registerButtonSelector).build()).click();

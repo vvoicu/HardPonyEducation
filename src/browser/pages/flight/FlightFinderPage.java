@@ -8,6 +8,8 @@ import com.hp.lft.sdk.web.ListBox;
 import com.hp.lft.sdk.web.ListBoxDescription;
 import com.hp.lft.sdk.web.RadioGroup;
 import com.hp.lft.sdk.web.RadioGroupDescription;
+import com.hp.lft.sdk.web.WebElement;
+import com.hp.lft.sdk.web.WebElementDescription;
 
 import browser.pages.BrowserAbstractPage;
 
@@ -17,6 +19,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 		super(browser);
 	}
 
+	private String FlightFromName = "form tr:nth-child(1)  b font font";
 	private String roundTripFlightRadioBtn = "input[value='roundtrip']";
 	private String oneWayFlightRadioBtn = "input[value*='oneway']";
 	private String selectPassagersCount = "select[name='passCount']";
@@ -32,12 +35,25 @@ public class FlightFinderPage extends BrowserAbstractPage {
 	private String selectAirline = "select[name='airline']";
 	private String continueButton = "input[name='findFlights']";
 
+	public String getFormNameafterLogin() throws GeneralLeanFtException {
+		String formName = "";
+		formName = browser
+				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(FlightFromName).build())
+				.getInnerText();
+		return formName;
+	}
+
+	public void printFormName() throws GeneralLeanFtException {
+		System.out.println("Form Name: " + getFormNameafterLogin());
+	}
+
 	public void selectFlightType(String flightType) throws GeneralLeanFtException {
-//		waitForPageToLoad();
+		// waitForPageToLoad();
 		switch (flightType.toLowerCase()) {
 		case "Round Trip":
 			browser.describe(RadioGroup.class,
-					new RadioGroupDescription.Builder().cssSelector(roundTripFlightRadioBtn).build()).select("tripType");
+					new RadioGroupDescription.Builder().cssSelector(roundTripFlightRadioBtn).build())
+					.select("tripType");
 			break;
 		case "One Way":
 			browser.describe(RadioGroup.class,

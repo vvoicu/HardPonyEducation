@@ -39,7 +39,8 @@ public class RegisterPage extends BrowserAbstractPage {
 	private String logInUserNameSelector = "input[name='userName']";
 	private String logInPasswordSelector = "input[name='password']";
 	private String logInSubmitButtonSelector = "input[name='login']";
-
+//	private String flightDetailsSelector = "form tr:nth-child(1)  b font font";
+	private String profileSelector = "a[href='mercuryprofile.php']";
 	
 
 	public void inputFirstName(String firstName) throws GeneralLeanFtException {
@@ -141,9 +142,15 @@ public class RegisterPage extends BrowserAbstractPage {
 	 }
 	 
 	 public void clickLogInSubmitButton() throws GeneralLeanFtException {
-		 browser.describe(WebElement.class, new
-		 WebElementDescription.Builder().cssSelector(logInSubmitButtonSelector).build()).click();
+		 browser.describe(WebElement.class, 
+				 new WebElementDescription.Builder().cssSelector(logInSubmitButtonSelector).build()).click();
 		 }
+	 
+	 public void clickProfileButton() throws GeneralLeanFtException {
+		 browser.describe(WebElement.class, 
+				 new WebElementDescription.Builder().cssSelector(profileSelector).build()).click();
+		 
+	 }
 	 
 	public String grabSuccessRegistrationFormNames() throws GeneralLeanFtException {
 		String createdNames = browser
@@ -159,5 +166,14 @@ public class RegisterPage extends BrowserAbstractPage {
 		 
 		return createdUserName;
 	}
+	
+	
+	
+//	public String verifyFlightDetails() throws GeneralLeanFtException {
+//		String flightDetails = browser.describe(WebElement.class, 
+//				new WebElementDescription.Builder().cssSelector(flightDetailsSelector).build()).getInnerText();
+//		 
+//		return flightDetails;
+//	}
 	
 }
