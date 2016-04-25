@@ -17,6 +17,7 @@ public class Constants {
 	public static final int PAGE_LOAD_MAX_RETRY = 20;
 	public static final String FlyUsername = "tutorial";
 	public static final String FlyPassword = "tutorial";
+	public static final String ERROR_SEPARATOR = "\n Failure: ";
 
 
 }

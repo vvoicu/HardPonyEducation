@@ -1,15 +1,15 @@
 package tests.browser.flight;
 
-import java.nio.Buffer;
-
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.BrowserFactory;
 
+import browser.pages.BrowserAbstractPage;
 import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
 import browser.pages.flight.RegisterPage;
@@ -23,21 +23,10 @@ public class RegisterTest extends UnitTestClassBase{
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
 	public RegisterPage registerPage;
+	public BrowserAbstractPage browserAbstractPage;
 	
 
-	private String firstName;
-	private String lastName;
-	private String phoneNumber;
-	private String email;
-	private String address1;
-	private String address2;
-	private String cityName;
-	private String stateName;
-	private String postalCode;
-	private String country;
-	private String userName;
-	private String password;
-	private String confirmPassword;
+	private String firstName, lastName, phoneNumber, email, address1, address2, cityName, stateName, postalCode, country, userName, password, confirmPassword;
 	
 	
 	@BeforeClass
@@ -77,7 +66,7 @@ public class RegisterTest extends UnitTestClassBase{
 	}
 	
 	@Test
-	public void flightFinderTest() throws GeneralLeanFtException {
+	public void flightFinderTest() throws GeneralLeanFtException, ReportException {
 		flightFinderPage.navigateTo(Constants.FLIGHT_BASE_URL);
 		flightHomePage.clickRegisterButton();
 		registerPage.inputFirstName(firstName);
@@ -94,5 +83,16 @@ public class RegisterTest extends UnitTestClassBase{
 		registerPage.inputPassword(password);
 		registerPage.inputConfirmPassword(confirmPassword);
 		registerPage.clickSubmitButton();
-}
+//		registerPage.clickSignInButton();
+		String extractedUserNames = registerPage.grabSuccessRegistrationFormNames();
+		
+		System.out.println("Expected: " + firstName + " Actual: " + extractedUserNames);
+		registerPage.verifyCondition("First name not as expected", extractedUserNames.contains(firstName + "2222"));
+		
+		System.out.println("Expected: " + lastName + " Actual: " + extractedUserNames);
+		registerPage.verifyCondition("Last name not as expected", extractedUserNames.contains(lastName + "22233"));
+		
+//		
+//		registerPage.verifyNoErrors();
+	}
 }
