@@ -1,5 +1,7 @@
 package tools;
 
+import java.io.File;
+
 import com.hp.lft.sdk.web.BrowserType;
 
 public class Constants {
@@ -10,6 +12,8 @@ public class Constants {
 //	public static final BrowserType BROWSER_TYPE = BrowserType.CHROME;
 //	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
 	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
+//	public static final BrowserType BROWSER_TYPE = BrowserType.CHROME;
+//	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
 
 	public static final long WEBDRIVER_IMPLICIT_WAIT = 30;
 	
@@ -18,6 +22,7 @@ public class Constants {
 	public static final String FlyUsername = "tutorial";
 	public static final String FlyPassword = "tutorial";
 	public static final String ERROR_SEPARATOR = "\n Failure: ";
+	public static final String PICTURE_REPORT_PATH = new java.io.File("").getAbsolutePath() + File.separator + "RunResults" + File.separator + "Resources" + File.separator;
 
 
 }
