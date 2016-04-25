@@ -33,11 +33,14 @@ public class RegisterPage extends BrowserAbstractPage {
 	private String passwordSelector = "input[name='password']";
 	private String confirmPasswordSelector = "input[name='confirmPassword']";
 	private String submitButtonSelector = "input[name='register']";
-	// private String signInButtonSelector = "body > div > table > tbody > tr >
-	// td:nth-child(2) > table > tbody > tr:nth-child(4) > td > table > tbody >
-	// tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td >
-	// p:nth-child(2) > font > a:nth-child(1)";
-	private String createdUserNameSelector = "tbody td:nth-child(2) table p:nth-child(1) b";
+	private String signInButtonSelector = "a[href='mercurysignon.php']";
+	private String createdNamesSelector = "tbody td:nth-child(2) table p:nth-child(1) b";
+	private String createdUserNameSelector = "tbody td:nth-child(2) table p:nth-child(3) b ";
+	private String logInUserNameSelector = "input[name='userName']";
+	private String logInPasswordSelector = "input[name='password']";
+	private String logInSubmitButtonSelector = "input[name='login']";
+
+	
 
 	public void inputFirstName(String firstName) throws GeneralLeanFtException {
 		waitForPageToLoad();
@@ -122,19 +125,39 @@ public class RegisterPage extends BrowserAbstractPage {
 		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(submitButtonSelector).build()).click();
 	}
 
-	// public void clickSignInButton() throws GeneralLeanFtException {
-	// browser.describe(Image.class, new
-	// ImageDescription.Builder().cssSelector(signInButtonSelector).build()).click();
-	// }
+	 public void clickSignInButton() throws GeneralLeanFtException {
+	 browser.describe(WebElement.class, new
+	 WebElementDescription.Builder().cssSelector(signInButtonSelector).build()).click();
+	 }
 
+	 public void inputLogInUserName(String logInUserName) throws GeneralLeanFtException {
+		 browser.describe(EditField.class, 
+				 new EditFieldDescription.Builder().cssSelector(logInUserNameSelector).build()).setValue(logInUserName);
+	 }
 	
+	 public void inputLogInPassword(String logInPassword) throws GeneralLeanFtException {
+		 browser.describe(EditField.class, 
+				 new EditFieldDescription.Builder().cssSelector(logInPasswordSelector).build()).setValue(logInPassword); 
+	 }
+	 
+	 public void clickLogInSubmitButton() throws GeneralLeanFtException {
+		 browser.describe(WebElement.class, new
+		 WebElementDescription.Builder().cssSelector(logInSubmitButtonSelector).build()).click();
+		 }
+	 
 	public String grabSuccessRegistrationFormNames() throws GeneralLeanFtException {
-		String createdUserName = browser
+		String createdNames = browser
 				.describe(WebElement.class,
-						new WebElementDescription.Builder().cssSelector(createdUserNameSelector).build())
+						new WebElementDescription.Builder().cssSelector(createdNamesSelector).build())
 				.getInnerText();
-
-		return createdUserName;
+		return createdNames;
 	}
 
+	public String verifyCreatedUserName() throws GeneralLeanFtException {
+		String createdUserName = browser.describe(WebElement.class, 
+				new WebElementDescription.Builder().cssSelector(createdUserNameSelector).build()).getInnerText();
+		 
+		return createdUserName;
+	}
+	
 }

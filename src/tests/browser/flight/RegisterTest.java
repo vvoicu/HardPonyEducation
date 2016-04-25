@@ -83,16 +83,24 @@ public class RegisterTest extends UnitTestClassBase{
 		registerPage.inputPassword(password);
 		registerPage.inputConfirmPassword(confirmPassword);
 		registerPage.clickSubmitButton();
-//		registerPage.clickSignInButton();
-		String extractedUserNames = registerPage.grabSuccessRegistrationFormNames();
 		
-		System.out.println("Expected: " + firstName + " Actual: " + extractedUserNames);
-		registerPage.verifyCondition("First name not as expected", extractedUserNames.contains(firstName + "2222"));
+		String extractedNames = registerPage.grabSuccessRegistrationFormNames();
+		String extractedUserName = registerPage.verifyCreatedUserName();
 		
-		System.out.println("Expected: " + lastName + " Actual: " + extractedUserNames);
-		registerPage.verifyCondition("Last name not as expected", extractedUserNames.contains(lastName + "22233"));
+		System.out.println("Expected: " + firstName + " Actual: " + extractedNames);
+		registerPage.verifyCondition("First name not as expected", extractedNames.contains(firstName));
 		
-//		
+		System.out.println("Expected: " + lastName + " Actual: " + extractedNames);
+		registerPage.verifyCondition("Last name not as expected", extractedNames.contains(lastName));
+		
+		System.out.println("Expected: " + userName + "Actual: " + extractedUserName);
+		registerPage.verifyCondition("User name not as expected", extractedUserName.contains(userName));
+		
+		registerPage.clickSignInButton();
+		registerPage.inputLogInUserName(userName);
+		registerPage.inputLogInPassword(password);
+		registerPage.clickLogInSubmitButton();
+		
 //		registerPage.verifyNoErrors();
 	}
 }
