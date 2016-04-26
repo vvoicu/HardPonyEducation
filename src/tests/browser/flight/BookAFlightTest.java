@@ -1,29 +1,26 @@
 package tests.browser.flight;
 
-import java.text.ParseException;
-
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.BrowserFactory;
 
+import browser.pages.flight.BookFlightPage;
 import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
 import browser.pages.flight.SelectFlightPage;
 import tools.Constants;
-import tools.Utils.DateUtils;
-import tools.Utils.StringUtils;
 import unittesting.UnitTestClassBase;
 
-public class FlightFinderTest extends UnitTestClassBase {
+public class BookAFlightTest extends UnitTestClassBase {
 
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
 	public SelectFlightPage selectFlightPage;
+	public BookFlightPage bookFlightPage;
 
 	private String flightType;
 	private String passengersNumber;
@@ -35,6 +32,12 @@ public class FlightFinderTest extends UnitTestClassBase {
 	private String arrivingDay;
 	private String serviceClass;
 	private String airline;
+	private String passenger1FirstName;
+	private String passenger2FirstName;
+	private String passenger1LastName;
+	private String passenger2LastName;
+	private String passenger1Meal;
+	private String passenger2Meal;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -49,7 +52,8 @@ public class FlightFinderTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
-		//Test Data
+
+		// Test Data
 		flightType = "One";
 		passengersNumber = "2";
 		departingFrom = "New York";
@@ -60,19 +64,25 @@ public class FlightFinderTest extends UnitTestClassBase {
 		arrivingDay = "30";
 		serviceClass = "Business";
 		airline = "Unified Airlines";
+		passenger1FirstName = "Ion";
+		passenger2FirstName = "Vasile";
+		passenger1LastName = "Pop";
+		passenger2LastName = "Matei";
+		passenger1Meal = "Kosher";
+		passenger2Meal = "Diabetic";
 
 		// test config
 		browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
 		flightFinderPage = new FlightFinderPage(browser);
 		flightHomePage = new FlightHomePage(browser);
 		selectFlightPage = new SelectFlightPage(browser);
+		bookFlightPage = new BookFlightPage(browser);
 
 	}
 
-	// Test scenario related actions
 	@Test
-	public void flightFinderTest()
-			throws GeneralLeanFtException, InterruptedException, ReportException, ParseException {
+	public void bookAFlightTest() throws GeneralLeanFtException {
+
 		flightFinderPage.navigateTo(Constants.FLIGHT_BASE_URL);
 		flightHomePage.inputUserName(Constants.FlyUsername);
 		flightHomePage.inputPassword(Constants.FlyPassword);
@@ -88,24 +98,10 @@ public class FlightFinderTest extends UnitTestClassBase {
 		flightFinderPage.selectServiceClass(serviceClass);
 		flightFinderPage.selectAirline(airline);
 		flightFinderPage.clickContinueInButton();
-
-		flightFinderPage.verifyCondition("Departed Location", StringUtils
-				.splitDestinationString(selectFlightPage.getDepartLocations(), "from").equals(departingFrom));
-
-		flightFinderPage.verifyCondition("Depared Month",
-				DateUtils.getAplicationMonth(selectFlightPage.getDepartDate()).equals(departingMonth));
-
-		flightFinderPage.verifyCondition("Depared Day",
-				DateUtils.getAplicationDay(selectFlightPage.getDepartDate()).equals(departingDay));
-
-		flightFinderPage.verifyCondition("Return Location",
-				StringUtils.splitDestinationString(selectFlightPage.getReturnLocations(), "from").equals(arrivingIn));
-
-		flightFinderPage.verifyCondition("Return Month",
-				DateUtils.getAplicationMonth(selectFlightPage.getReturnDate()).equals(arrivingMonth));
-
-		flightFinderPage.verifyCondition("Return Day",
-				DateUtils.getAplicationDay(selectFlightPage.getReturnDate()).equals(arrivingDay));
+		selectFlightPage.clickContinueButton();
+		bookFlightPage.typePassengerFirstName(passenger1FirstName, passenger2FirstName);
+		bookFlightPage.typePassengerLastName(passenger1LastName, passenger2LastName);
+		bookFlightPage.selectPassengerMeal(passenger1Meal, passenger2Meal);
 
 	}
 

@@ -121,6 +121,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 
 	public void clickContinueInButton() throws GeneralLeanFtException {
 		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(continueButton).build()).click();
+		browser.sync();
 	}
 
 }

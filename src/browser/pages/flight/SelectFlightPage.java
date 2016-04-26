@@ -60,6 +60,7 @@ public class SelectFlightPage extends BrowserAbstractPage {
 
 	public void clickContinueButton() throws GeneralLeanFtException {
 		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(continueButton).build()).click();
+		browser.sync();
 	}
 
 }
