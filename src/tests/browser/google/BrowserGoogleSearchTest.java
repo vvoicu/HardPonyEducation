@@ -1,4 +1,4 @@
-package tests.browser;
+package tests.browser.google;
 
 import org.junit.AfterClass;
 import org.junit.Before;
