@@ -4,6 +4,8 @@ import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.sdk.web.EditField;
 import com.hp.lft.sdk.web.EditFieldDescription;
+import com.hp.lft.sdk.web.Image;
+import com.hp.lft.sdk.web.ImageDescription;
 import com.hp.lft.sdk.web.ListBox;
 import com.hp.lft.sdk.web.ListBoxDescription;
 
@@ -14,6 +16,9 @@ public class BookFlightPage extends BrowserAbstractPage {
 	public BookFlightPage(Browser browser) {
 		super(browser);
 	}
+
+	private String cardNumberInput = "input[name='creditnumber']";
+	private String securePurchaseButton = "input[name='buyFlights']";
 
 	public void typePassengerFirstName(String... passangerFirstName) throws GeneralLeanFtException {
 		int i = 0;
@@ -46,6 +51,16 @@ public class BookFlightPage extends BrowserAbstractPage {
 					.select(meal);
 			i++;
 		}
+	}
+
+	public void typeCardNumber(String cardNumber) throws GeneralLeanFtException {
+		browser.describe(EditField.class, new EditFieldDescription.Builder().cssSelector(cardNumberInput).build())
+				.setValue(cardNumber);
+	}
+
+	public void clickSecurePurchase() throws GeneralLeanFtException {
+		browser.describe(Image.class, new ImageDescription.Builder().cssSelector(securePurchaseButton).build()).click();
+		browser.sync();
 	}
 
 }

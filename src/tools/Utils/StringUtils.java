@@ -17,4 +17,10 @@ public class StringUtils {
 		return textSplited;
 	}
 
+	public static String splitPassengersNumber(String passengersString) {
+		String[] passengersSplit = passengersString.split(" ");
+		String stringNumber = passengersSplit[0];
+		return stringNumber;
+	}
+
 }

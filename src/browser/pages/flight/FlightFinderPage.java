@@ -20,7 +20,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 		super(browser);
 	}
 
-	private String FlightFromName = "form tr:nth-child(1)  b font font";
+	private String flightFromName = "form tr:nth-child(1)  b font font";
 	private String roundTripFlightRadioBtn = "input[value='roundtrip']";
 	private String oneWayFlightRadioBtn = "input[value*='oneway']";
 	private String selectPassagersCount = "select[name='passCount']";
@@ -39,7 +39,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 	public String grabFormNameAfterLogin() throws GeneralLeanFtException {
 		String formName = "";
 		formName = browser
-				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(FlightFromName).build())
+				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(flightFromName).build())
 				.getInnerText();
 		return formName;
 	}

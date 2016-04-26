@@ -5,28 +5,30 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.BrowserFactory;
 
 import browser.pages.flight.BookFlightPage;
+import browser.pages.flight.FlightConfirmationPage;
 import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
 import browser.pages.flight.SelectFlightPage;
 import tools.Constants;
 import tools.Constants.TRIP_TYPE;
+import tools.Utils.StringUtils;
 import unittesting.UnitTestClassBase;
 
 public class BookAFlightTest extends UnitTestClassBase {
 
-	
-	//page mapping
+	// page mapping
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
 	public SelectFlightPage selectFlightPage;
 	public BookFlightPage bookFlightPage;
+	public FlightConfirmationPage flightConfirmationPage;
 
-	
-	//test Data
+	// test Data
 	private TRIP_TYPE flightType;
 	private String passengersNumber;
 	private String departingFrom;
@@ -43,6 +45,7 @@ public class BookAFlightTest extends UnitTestClassBase {
 	private String passenger2LastName;
 	private String passenger1Meal;
 	private String passenger2Meal;
+	private String cardNumber;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -75,6 +78,7 @@ public class BookAFlightTest extends UnitTestClassBase {
 		passenger2LastName = "Matei";
 		passenger1Meal = "Kosher";
 		passenger2Meal = "Diabetic";
+		cardNumber = "1234123412341234";
 
 		// test config
 		browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
@@ -82,11 +86,12 @@ public class BookAFlightTest extends UnitTestClassBase {
 		flightHomePage = new FlightHomePage(browser);
 		selectFlightPage = new SelectFlightPage(browser);
 		bookFlightPage = new BookFlightPage(browser);
+		flightConfirmationPage = new FlightConfirmationPage(browser);
 
 	}
 
 	@Test
-	public void bookAFlightTest() throws GeneralLeanFtException {
+	public void bookAFlightTest() throws GeneralLeanFtException, ReportException {
 
 		flightFinderPage.navigateTo(Constants.FLIGHT_BASE_URL);
 		flightHomePage.inputUserName(Constants.FlyUsername);
@@ -107,7 +112,10 @@ public class BookAFlightTest extends UnitTestClassBase {
 		bookFlightPage.typePassengerFirstName(passenger1FirstName, passenger2FirstName);
 		bookFlightPage.typePassengerLastName(passenger1LastName, passenger2LastName);
 		bookFlightPage.selectPassengerMeal(passenger1Meal, passenger2Meal);
+		bookFlightPage.typeCardNumber(cardNumber);
+		bookFlightPage.clickSecurePurchase();
 
+		bookFlightPage.verifyCondition("Passengers Number", StringUtils
+				.splitPassengersNumber(flightConfirmationPage.grabPassengersNumber()).equals(passengersNumber));
 	}
-
 }
