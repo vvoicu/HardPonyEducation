@@ -35,7 +35,9 @@ public class UnitTestClassBase extends UnitTestBase {
     @After
     public void afterTest() throws Exception {
         testTearDown();
-        browser.close();
+        if(browser != null){
+            browser.close();
+        }
     }
 
     public static void globalTearDown() throws Exception {

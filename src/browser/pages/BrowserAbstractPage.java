@@ -14,6 +14,7 @@ import tools.Constants;
 public class BrowserAbstractPage {
 
 	protected Browser browser;
+	
 
 	public BrowserAbstractPage(Browser browser) {
 		this.browser = browser;
@@ -42,6 +43,9 @@ public class BrowserAbstractPage {
 			e.printStackTrace();
 		}
 	}
+	
+
+//	private String errorBuffer = "";
 
 	public void verifyCondition(String message, boolean condition) throws ReportException {
 		try {
@@ -49,7 +53,21 @@ public class BrowserAbstractPage {
 				fail(message);
 		} catch (AssertionError e) {
 			Reporter.reportEvent("Verification", message, Status.Failed, e);
+//			errorBuffer += Constants.ERROR_SEPARATOR + message;
 			throw e;
 		}
 	}
+	
+//	public void verifyNoErrors() throws ReportException {
+//		
+//		System.out.println("messages: " + errorBuffer);
+//		try {
+//			if (Verify.isTrue(errorBuffer.contains(Constants.ERROR_SEPARATOR)))
+//				fail("Errors have been found");
+//		} catch (AssertionError e) {
+////			Reporter.reportEvent("Verification errors have been found. ", errorBuffer, Status.Failed, e);
+//			throw e;
+//		}
+//	}
+
 }

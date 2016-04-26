@@ -1,5 +1,7 @@
 package tools;
 
+import java.io.File;
+
 import com.hp.lft.sdk.web.BrowserType;
 
 public class Constants {
@@ -8,7 +10,10 @@ public class Constants {
 	public static final String FLIGHT_BASE_URL = "http://newtours.demoaut.com/";
 	public static final String CHROME_BASE_URL = "https://www.google.com/ncr";
 //	public static final BrowserType BROWSER_TYPE = BrowserType.CHROME;
+//	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
 	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
+//	public static final BrowserType BROWSER_TYPE = BrowserType.CHROME;
+//	public static final BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
 
 	public static final long WEBDRIVER_IMPLICIT_WAIT = 30;
 	
@@ -16,6 +21,8 @@ public class Constants {
 	public static final int PAGE_LOAD_MAX_RETRY = 20;
 	public static final String FlyUsername = "tutorial";
 	public static final String FlyPassword = "tutorial";
+	public static final String ERROR_SEPARATOR = "\n Failure: ";
+	public static final String PICTURE_REPORT_PATH = new java.io.File("").getAbsolutePath() + File.separator + "RunResults" + File.separator + "Resources" + File.separator;
 
 
 }
