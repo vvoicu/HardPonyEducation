@@ -12,14 +12,11 @@ import com.hp.lft.report.ReportException;
 
 import selenium.config.SeleniumDriver;
 import selenium.steps.GoogleHomeSteps;
+import tools.Constants;
 import unittesting.UnitTestClassBase;
 
 public class GoogleSearchTest extends UnitTestClassBase {
 
-	public GoogleSearchTest() {
-		//Change this constructor to private if you supply your own public constructor
-	}
-	
 	//Test Data
 	private String URL;
 	private String searchTerm;
@@ -31,7 +28,9 @@ public class GoogleSearchTest extends UnitTestClassBase {
 	public static void setUpBeforeClass() throws Exception {
 		instance = new GoogleSearchTest();
 		globalSetup(GoogleSearchTest.class);
-		SeleniumDriver.pickWebdriver("firefox");
+		
+		//initialize webdriver
+		SeleniumDriver.pickWebdriver(Constants.DRIVER_TYPE.FIREFOX);
 	}
 
 	@AfterClass
@@ -41,11 +40,11 @@ public class GoogleSearchTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
+		//test data
 		URL = "https://www.google.com/ncr";
 		searchTerm = "evozon";
 
         googleHomeSteps = new GoogleHomeSteps(SeleniumDriver.driver);
-		
 	}
 
 	@After

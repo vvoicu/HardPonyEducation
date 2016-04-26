@@ -48,16 +48,9 @@ public class LoginTest extends UnitTestClassBase {
 			flightHomePage.inputUserName(Constants.FlyUsername);
 			flightHomePage.inputPassword(Constants.FlyPassword);
 			flightHomePage.clickSignInButton();
-			flightFinderPage.printFormName();
+			System.out.println(flightFinderPage.grabFormNameAfterLogin());
 			
-			flightFinderPage.verifyCondition("Login succes", flightFinderPage.getFormNameafterLogin().equals("Flight Details"));
-			
-			
-			
-			
-			
-			
-			
+			flightFinderPage.verifyCondition("Login succes", flightFinderPage.grabFormNameAfterLogin().equals("Flight Details"));
 
 		}
 }

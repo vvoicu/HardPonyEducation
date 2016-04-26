@@ -12,6 +12,7 @@ import com.hp.lft.sdk.web.WebElement;
 import com.hp.lft.sdk.web.WebElementDescription;
 
 import browser.pages.BrowserAbstractPage;
+import tools.Constants;
 
 public class FlightFinderPage extends BrowserAbstractPage {
 
@@ -35,7 +36,7 @@ public class FlightFinderPage extends BrowserAbstractPage {
 	private String selectAirline = "select[name='airline']";
 	private String continueButton = "input[name='findFlights']";
 
-	public String getFormNameafterLogin() throws GeneralLeanFtException {
+	public String grabFormNameAfterLogin() throws GeneralLeanFtException {
 		String formName = "";
 		formName = browser
 				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(FlightFromName).build())
@@ -43,19 +44,14 @@ public class FlightFinderPage extends BrowserAbstractPage {
 		return formName;
 	}
 
-	public void printFormName() throws GeneralLeanFtException {
-		System.out.println("Form Name: " + getFormNameafterLogin());
-	}
-
-	public void selectFlightType(String flightType) throws GeneralLeanFtException {
-		// waitForPageToLoad();
-		switch (flightType.toLowerCase()) {
-		case "Round Trip":
+	public void selectFlightType(Constants.TRIP_TYPE flightType) throws GeneralLeanFtException {
+		switch (flightType) {
+		case ROUND_TRIP:
 			browser.describe(RadioGroup.class,
 					new RadioGroupDescription.Builder().cssSelector(roundTripFlightRadioBtn).build())
 					.select("tripType");
 			break;
-		case "One Way":
+		case ONE_WAY:
 			browser.describe(RadioGroup.class,
 					new RadioGroupDescription.Builder().cssSelector(oneWayFlightRadioBtn).build()).select("oneway");
 			break;

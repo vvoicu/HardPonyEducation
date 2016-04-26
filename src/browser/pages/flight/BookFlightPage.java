@@ -14,8 +14,6 @@ public class BookFlightPage extends BrowserAbstractPage {
 	public BookFlightPage(Browser browser) {
 		super(browser);
 	}
-	
-	
 
 	public void typePassengerFirstName(String... passangerFirstName) throws GeneralLeanFtException {
 		int i = 0;
@@ -24,7 +22,7 @@ public class BookFlightPage extends BrowserAbstractPage {
 			browser.describe(EditField.class,
 					new EditFieldDescription.Builder().cssSelector("input[name='passFirst" + u + "']").build())
 					.setValue(name);
-			i = i + 1;
+			i++;
 		}
 	}
 
@@ -35,7 +33,7 @@ public class BookFlightPage extends BrowserAbstractPage {
 			browser.describe(EditField.class,
 					new EditFieldDescription.Builder().cssSelector("input[name='passLast" + u + "']").build())
 					.setValue(name);
-			i = i + 1;
+			i++;
 		}
 	}
 
@@ -46,9 +44,8 @@ public class BookFlightPage extends BrowserAbstractPage {
 			browser.describe(ListBox.class,
 					new ListBoxDescription.Builder().cssSelector("select[name='pass." + u + ".meal']").build())
 					.select(meal);
-			i = i + 1;
+			i++;
 		}
 	}
-	
 
 }

@@ -16,10 +16,5 @@ public class StringUtils {
 		}
 		return textSplited;
 	}
-	
-	
-	public void main(String args[]){
-		splitDestinationString("New York to Boston", "departing");
-	}
 
 }

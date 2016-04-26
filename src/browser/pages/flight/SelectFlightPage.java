@@ -8,7 +8,6 @@ import com.hp.lft.sdk.web.WebElement;
 import com.hp.lft.sdk.web.WebElementDescription;
 
 import browser.pages.BrowserAbstractPage;
-import tools.Utils.StringUtils;
 
 public class SelectFlightPage extends BrowserAbstractPage {
 
@@ -22,7 +21,7 @@ public class SelectFlightPage extends BrowserAbstractPage {
 	private String locationReturnFrom = "form *:nth-child(10) table:nth-child(1) td.title[align='LEFT']>b>font";
 	private String dateReturnFrom = "form *:nth-child(10) table:nth-child(1) td.title[align='RIGHT']>b>font";
 
-	public String getDepartLocations() throws GeneralLeanFtException {
+	public String grabDepartLocations() throws GeneralLeanFtException {
 		String departLocations = "";
 		departLocations = browser
 				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(locationDepartFrom).build())
@@ -30,7 +29,7 @@ public class SelectFlightPage extends BrowserAbstractPage {
 		return departLocations;
 	}
 
-	public String getDepartDate() throws GeneralLeanFtException {
+	public String grabDepartDate() throws GeneralLeanFtException {
 		String departDate = "";
 		departDate = browser
 				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(dateDepartFrom).build())
@@ -38,7 +37,7 @@ public class SelectFlightPage extends BrowserAbstractPage {
 		return departDate;
 	}
 
-	public String getReturnLocations() throws GeneralLeanFtException {
+	public String grabReturnLocations() throws GeneralLeanFtException {
 		String departLocations = "";
 		departLocations = browser
 				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(locationReturnFrom).build())
@@ -46,16 +45,12 @@ public class SelectFlightPage extends BrowserAbstractPage {
 		return departLocations;
 	}
 
-	public String getReturnDate() throws GeneralLeanFtException {
+	public String grabReturnDate() throws GeneralLeanFtException {
 		String returnDate = "";
 		returnDate = browser
 				.describe(WebElement.class, new WebElementDescription.Builder().cssSelector(dateReturnFrom).build())
 				.getInnerText();
 		return returnDate;
-	}
-
-	public void printDepartLocation() throws GeneralLeanFtException {
-		System.out.println("Depart: " + StringUtils.splitDestinationString(getDepartLocations(), "from"));
 	}
 
 	public void clickContinueButton() throws GeneralLeanFtException {

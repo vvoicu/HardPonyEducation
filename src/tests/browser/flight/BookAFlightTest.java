@@ -13,16 +13,21 @@ import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
 import browser.pages.flight.SelectFlightPage;
 import tools.Constants;
+import tools.Constants.TRIP_TYPE;
 import unittesting.UnitTestClassBase;
 
 public class BookAFlightTest extends UnitTestClassBase {
 
+	
+	//page mapping
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
 	public SelectFlightPage selectFlightPage;
 	public BookFlightPage bookFlightPage;
 
-	private String flightType;
+	
+	//test Data
+	private TRIP_TYPE flightType;
 	private String passengersNumber;
 	private String departingFrom;
 	private String departingMonth;
@@ -53,8 +58,8 @@ public class BookAFlightTest extends UnitTestClassBase {
 	@Before
 	public void setUp() throws Exception {
 
-		// Test Data
-		flightType = "One";
+		// Test Data setup
+		flightType = Constants.TRIP_TYPE.ONE_WAY;
 		passengersNumber = "2";
 		departingFrom = "New York";
 		departingMonth = "May";

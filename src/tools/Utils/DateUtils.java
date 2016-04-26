@@ -21,8 +21,4 @@ public class DateUtils {
 		return output;
 	}
 
-	public static void main(String args[]) throws ParseException {
-
-		System.out.println("Day: " + getAplicationDay("5/24/2016"));
-	}
 }

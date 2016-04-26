@@ -21,13 +21,15 @@ import unittesting.UnitTestClassBase;
 
 public class RegisterTest extends UnitTestClassBase{
 
+	
+	//page mapping
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
 	public RegisterPage registerPage;
 	public BrowserAbstractPage browserAbstractPage;
 	public ProfilePage profilePage;
 	
-
+	//test data
 	private String firstName, lastName, phoneNumber, email, address1, address2, cityName, stateName, postalCode, country, userName, password, confirmPassword;
 	private String profileFirstName,profileLastName;
 	
@@ -52,6 +54,7 @@ public class RegisterTest extends UnitTestClassBase{
 		registerPage = new RegisterPage(browser);
 		profilePage = new ProfilePage(browser);
 		
+		//test data
 		firstName = "TestingFirstName";
 		lastName = "TestingLastName";
 		phoneNumber = "+(40) " + RandomStringGenerator.generateRandomString(9, Mode.NUMERIC);
@@ -91,7 +94,7 @@ public class RegisterTest extends UnitTestClassBase{
 		registerPage.clickSubmitButton();
 		
 		String extractedNames = registerPage.grabSuccessRegistrationFormNames();
-		String extractedUserName = registerPage.verifyCreatedUserName();
+		String extractedUserName = registerPage.grabCreatedUserName();
 		
 		System.out.println("Expected: " + firstName + " Actual: " + extractedNames);
 		registerPage.verifyCondition("First name not as expected", extractedNames.contains(firstName));
@@ -106,12 +109,10 @@ public class RegisterTest extends UnitTestClassBase{
 		registerPage.inputLogInUserName(userName);
 		registerPage.inputLogInPassword(password);
 		registerPage.clickLogInSubmitButton();
-		flightFinderPage.getFormNameafterLogin();
+		flightFinderPage.grabFormNameAfterLogin();
 //		flightFinderPage.verifyCondition("Login succes", flightFinderPage.getFormNameafterLogin().equals("Flight Details"));
 		registerPage.clickProfileButton();
 		profilePage.inputProfileFirstName(profileFirstName);
 		profilePage.inputProfileLastName(profileLastName);
-		
-//		registerPage.verifyNoErrors();
 	}
 }

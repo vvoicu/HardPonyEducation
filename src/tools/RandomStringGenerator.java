@@ -10,6 +10,12 @@ public class RandomStringGenerator {
 		ALPHA, ALPHANUMERIC, NUMERIC, ALPHANUMERICLOWERCASE
 	}
 
+	/**
+	 * Generate random string of given length, based on predefined modes.
+	 * @param length
+	 * @param mode
+	 * @return
+	 */
 	public static String generateRandomString(int length, Mode mode) {
 
 		StringBuffer buffer = new StringBuffer();

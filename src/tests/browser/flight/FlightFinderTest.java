@@ -15,17 +15,22 @@ import browser.pages.flight.FlightFinderPage;
 import browser.pages.flight.FlightHomePage;
 import browser.pages.flight.SelectFlightPage;
 import tools.Constants;
+import tools.Constants.TRIP_TYPE;
 import tools.Utils.DateUtils;
 import tools.Utils.StringUtils;
 import unittesting.UnitTestClassBase;
 
 public class FlightFinderTest extends UnitTestClassBase {
 
+	
+	//page mapping
 	public FlightFinderPage flightFinderPage;
 	public FlightHomePage flightHomePage;
 	public SelectFlightPage selectFlightPage;
 
-	private String flightType;
+	
+	//test data
+	private TRIP_TYPE flightType;
 	private String passengersNumber;
 	private String departingFrom;
 	private String departingMonth;
@@ -50,7 +55,7 @@ public class FlightFinderTest extends UnitTestClassBase {
 	@Before
 	public void setUp() throws Exception {
 		//Test Data
-		flightType = "One";
+		flightType = Constants.TRIP_TYPE.ONE_WAY;
 		passengersNumber = "2";
 		departingFrom = "New York";
 		departingMonth = "May";
@@ -90,22 +95,22 @@ public class FlightFinderTest extends UnitTestClassBase {
 		flightFinderPage.clickContinueInButton();
 
 		flightFinderPage.verifyCondition("Departed Location", StringUtils
-				.splitDestinationString(selectFlightPage.getDepartLocations(), "from").equals(departingFrom));
+				.splitDestinationString(selectFlightPage.grabDepartLocations(), "from").equals(departingFrom));
 
 		flightFinderPage.verifyCondition("Depared Month",
-				DateUtils.getAplicationMonth(selectFlightPage.getDepartDate()).equals(departingMonth));
+				DateUtils.getAplicationMonth(selectFlightPage.grabDepartDate()).equals(departingMonth));
 
 		flightFinderPage.verifyCondition("Depared Day",
-				DateUtils.getAplicationDay(selectFlightPage.getDepartDate()).equals(departingDay));
+				DateUtils.getAplicationDay(selectFlightPage.grabDepartDate()).equals(departingDay));
 
 		flightFinderPage.verifyCondition("Return Location",
-				StringUtils.splitDestinationString(selectFlightPage.getReturnLocations(), "from").equals(arrivingIn));
+				StringUtils.splitDestinationString(selectFlightPage.grabReturnLocations(), "from").equals(arrivingIn));
 
 		flightFinderPage.verifyCondition("Return Month",
-				DateUtils.getAplicationMonth(selectFlightPage.getReturnDate()).equals(arrivingMonth));
+				DateUtils.getAplicationMonth(selectFlightPage.grabReturnDate()).equals(arrivingMonth));
 
 		flightFinderPage.verifyCondition("Return Day",
-				DateUtils.getAplicationDay(selectFlightPage.getReturnDate()).equals(arrivingDay));
+				DateUtils.getAplicationDay(selectFlightPage.grabReturnDate()).equals(arrivingDay));
 
 	}
 
