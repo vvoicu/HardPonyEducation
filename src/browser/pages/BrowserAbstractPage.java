@@ -50,5 +50,16 @@ public class BrowserAbstractPage {
 			throw e;
 		}
 	}
-	
+
+	public void verifyContainsCondition(String message, String expected, String actual) throws ReportException {
+		try {
+			if (!Verify.isTrue(actual.contains(expected)))
+				fail(message);
+		} catch (AssertionError e) {
+			Reporter.reportEvent("Verification", message + " Expected: " + expected + " Actual: " + actual,
+					Status.Failed, e);
+			throw e;
+		}
+	}
+
 }
