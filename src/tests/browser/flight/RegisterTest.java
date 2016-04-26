@@ -28,8 +28,8 @@ public class RegisterTest extends UnitTestClassBase{
 	public ProfilePage profilePage;
 	
 
-	private String firstName, lastName, phoneNumber, email, address1, address2, cityName, stateName, postalCode, country, userName, password, confirmPassword, profileFirstName;
-//	private String profileFirstName;
+	private String firstName, lastName, phoneNumber, email, address1, address2, cityName, stateName, postalCode, country, userName, password, confirmPassword;
+	private String profileFirstName,profileLastName;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -67,6 +67,7 @@ public class RegisterTest extends UnitTestClassBase{
 		confirmPassword = "Testing123";
 //		profileFirstName = RandomStringGenerator.generateRandomString(6, Mode.ALPHA);		
 		profileFirstName = "aaaaa";
+		profileLastName = "bbbbb";
 		
 	}
 	
@@ -109,7 +110,7 @@ public class RegisterTest extends UnitTestClassBase{
 //		flightFinderPage.verifyCondition("Login succes", flightFinderPage.getFormNameafterLogin().equals("Flight Details"));
 		registerPage.clickProfileButton();
 		profilePage.inputProfileFirstName(profileFirstName);
-		
+		profilePage.inputProfileLastName(profileLastName);
 		
 //		registerPage.verifyNoErrors();
 	}
