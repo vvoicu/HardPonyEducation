@@ -23,6 +23,7 @@ public class GoogleSearchTest extends UnitTestClassBase {
 	
 	//Page Objects
 	public GoogleHomeSteps googleHomeSteps;
+	
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -40,16 +41,19 @@ public class GoogleSearchTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
+
+		googleHomeSteps = new GoogleHomeSteps(SeleniumDriver.driver);
+		
+		
 		//test data
 		URL = "https://www.google.com/ncr";
 		searchTerm = "evozon";
-
-        googleHomeSteps = new GoogleHomeSteps(SeleniumDriver.driver);
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		SeleniumDriver.closeDriver();
+		
+        SeleniumDriver.closeDriver();
 	}
 	
 

@@ -28,6 +28,7 @@ public class UnitTestClassBase extends UnitTestBase {
 
     @Before
     public void beforeTest() throws Exception {
+
         testSetup();
         Reporter.setSnapshotCaptureLevel(CaptureLevel.All);
     }
