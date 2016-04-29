@@ -13,6 +13,9 @@ import com.hp.lft.report.ReportException;
 import selenium.config.SeleniumDriver;
 import selenium.steps.GoogleHomeSteps;
 import tools.Constants;
+import tools.RandomStringGenerator;
+import tools.RandomStringGenerator.AlphabetType;
+import tools.RandomStringGenerator.Mode;
 import unittesting.UnitTestClassBase;
 
 public class GoogleSearchTest extends UnitTestClassBase {
@@ -47,7 +50,7 @@ public class GoogleSearchTest extends UnitTestClassBase {
 		
 		//test data
 		URL = "https://www.google.com/ncr";
-		searchTerm = "evozon";
+		searchTerm = RandomStringGenerator.generateRandomString(10, Mode.ALPHA, AlphabetType.RU);
 	}
 
 	@After
