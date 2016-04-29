@@ -15,7 +15,7 @@ public class RandomStringGenerator {
 	}
 
 	public static enum AlphabetType {
-		TR, RU,
+		TR, RU, JP,
 	}
 
 	public static String generateRandomString(int length, Mode mode, AlphabetType alphabetType) {

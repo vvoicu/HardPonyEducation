@@ -50,7 +50,7 @@ public class GoogleSearchTest extends UnitTestClassBase {
 		
 		//test data
 		URL = "https://www.google.com/ncr";
-		searchTerm = RandomStringGenerator.generateRandomString(10, Mode.ALPHA, AlphabetType.RU);
+		searchTerm = RandomStringGenerator.generateRandomString(10, Mode.ALPHA, AlphabetType.JP);
 	}
 
 	@After
