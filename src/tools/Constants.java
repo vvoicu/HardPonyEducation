@@ -36,4 +36,6 @@ public class Constants {
 	public static final long WEBDRIVER_IMPLICIT_WAIT = 30;
 	public static final long WAIT_TIME_SMALL = 3000;
 	public static final int PAGE_LOAD_MAX_RETRY = 20;
+
+	public static final String RESOURCES_PATH = new java.io.File("").getAbsolutePath() + File.separator + "resources" + File.separator + "fielddata" + File.separator;
 }

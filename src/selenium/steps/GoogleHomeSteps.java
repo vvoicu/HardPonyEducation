@@ -15,9 +15,17 @@ public class GoogleHomeSteps extends AbstractSteps{
 
 	private GoogleHomePage googleHomePage = new GoogleHomePage(driver);
 	
+	
 	public void inputSearchTerm(String search) throws ReportException{
 		ReporterUtils.reportStep(Thread.currentThread().getStackTrace()[1].getMethodName());
 		googleHomePage.inputSearchTerm(search);
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -34,6 +34,7 @@ public class ReporterUtils {
 	 * @throws ReportException
 	 */
 	public static void reportStep(String methodName) throws ReportException {
+		System.out.println("here Here: " + methodName);
 		String methodSplit = splitMethodName(methodName);
 		Reporter.reportEvent(methodSplit, injectImgHtml(), Status.Passed);
 	}
@@ -78,7 +79,6 @@ public class ReporterUtils {
 		for (String stringNow : resultWords) {
 			resultConcat += stringNow + Constants.STRING_SPLIT_SEPARATOR;
 		}
-		resultConcat = resultConcat.substring(0).toUpperCase();
 		System.out.println("methodName: " + resultConcat);
 
 		return resultConcat;

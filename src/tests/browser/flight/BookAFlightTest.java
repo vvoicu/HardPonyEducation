@@ -1,5 +1,8 @@
 package tests.browser.flight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -17,6 +20,7 @@ import browser.pages.flight.SelectFlightPage;
 import tools.Constants;
 import tools.Constants.TRIP_TYPE;
 import tools.Utils.StringUtils;
+import tools.models.flight.CustomerModel;
 import unittesting.UnitTestClassBase;
 
 public class BookAFlightTest extends UnitTestClassBase {
@@ -39,13 +43,14 @@ public class BookAFlightTest extends UnitTestClassBase {
 	private String arrivingDay;
 	private String serviceClass;
 	private String airline;
-	private String passenger1FirstName;
-	private String passenger2FirstName;
-	private String passenger1LastName;
-	private String passenger2LastName;
-	private String passenger1Meal;
-	private String passenger2Meal;
+//	private String passenger1FirstName;
+//	private String passenger2FirstName;
+//	private String passenger1LastName;
+//	private String passenger2LastName;
+//	private String passenger1Meal;
+//	private String passenger2Meal;
 	private String cardNumber;
+	private List<CustomerModel> customersList = new ArrayList<CustomerModel>();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -72,13 +77,22 @@ public class BookAFlightTest extends UnitTestClassBase {
 		arrivingDay = "30";
 		serviceClass = "Business";
 		airline = "Unified Airlines";
-		passenger1FirstName = "Ion";
-		passenger2FirstName = "Vasile";
-		passenger1LastName = "Pop";
-		passenger2LastName = "Matei";
-		passenger1Meal = "Kosher";
-		passenger2Meal = "Diabetic";
+
 		cardNumber = "1234123412341234";
+		
+		CustomerModel customerOne = new CustomerModel();
+		customerOne.setFirstName("Ion");
+		customerOne.setLastName("Pop");
+		customerOne.setMeal("Kosher");
+		
+		CustomerModel customerTwo = new CustomerModel();
+		customerTwo.setFirstName("Vasile");
+		customerTwo.setLastName("Matei");
+		customerTwo.setMeal("Diabetic");
+		
+		customersList.add(customerOne);
+		customersList.add(customerTwo);
+		
 
 		// test config
 		browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
@@ -109,9 +123,7 @@ public class BookAFlightTest extends UnitTestClassBase {
 		flightFinderPage.selectAirline(airline);
 		flightFinderPage.clickContinueInButton();
 		selectFlightPage.clickContinueButton();
-		bookFlightPage.typePassengerFirstName(passenger1FirstName, passenger2FirstName);
-		bookFlightPage.typePassengerLastName(passenger1LastName, passenger2LastName);
-		bookFlightPage.selectPassengerMeal(passenger1Meal, passenger2Meal);
+		bookFlightPage.fillCustomerList(customersList);
 		bookFlightPage.typeCardNumber(cardNumber);
 		bookFlightPage.clickSecurePurchase();
 

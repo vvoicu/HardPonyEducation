@@ -58,7 +58,7 @@ public class RegisterTest extends UnitTestClassBase{
 		firstName = "TestingFirstName";
 		lastName = "TestingLastName";
 		phoneNumber = "+(40) " + RandomStringGenerator.generateRandomString(9, Mode.NUMERIC);
-		email = RandomStringGenerator.generateRandomString(6,Mode.ALPHANUMERICLOWERCASE) + "@m.com";
+		email = RandomStringGenerator.generateRandomString(6,Mode.ALPHANUMERICSCHAR) + "@m.com";
 		address1 = "Testing Address1";
 		address2 = "Testing Address2";
 		cityName = "Cluj-Napoca";
