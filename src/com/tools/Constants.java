@@ -16,5 +16,6 @@ public class Constants {
 	
 
 	public enum VisibleColumnsLabels { Name, Category, Readme, Version, Build, Description};
+	public enum ResourcesVisibleColumnsLabels { Name, Extension, Path, Version, Updated, Factory, Package};
 
 }
