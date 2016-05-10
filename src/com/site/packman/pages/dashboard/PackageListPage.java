@@ -9,9 +9,14 @@ import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.sdk.web.WebElement;
 import com.hp.lft.sdk.web.WebElementDescription;
 import com.tools.AbstractPage;
-import com.tools.Constants.VisibleColumnsLabels;
+import com.tools.Constants.PackageVisibleColumnsLabels;
 import com.tools.data.model.PackageItemModel;
 
+/**
+ * Page contains logic related to the Package list tab on the Dashboard page.
+ * @author vvoicu
+ *
+ */
 public class PackageListPage extends AbstractPage {
 
 	public PackageListPage(Browser browser) {
@@ -20,6 +25,13 @@ public class PackageListPage extends AbstractPage {
 
 	private String generalElementSelector = "table.table__table";
 
+	
+	/**
+	 * Will return a list of {@link PackageItemModel}. fields will be set to an empty string if no content is found for a field. 
+	 * @return
+	 * @throws GeneralLeanFtException
+	 * @throws CloneNotSupportedException
+	 */
 	public List<PackageItemModel> grabListElements() throws GeneralLeanFtException, CloneNotSupportedException {
 
 		WebElement listElement = browser.describe(WebElement.class,
@@ -65,13 +77,21 @@ public class PackageListPage extends AbstractPage {
 		return resultList;
 	}
 
+	
+	/**
+	 * The method will build two list of columns: visible and hidden. The hidden list is build based on the {@link PackageVisibleColumnsLabels} enum and by excluding expected visible columns.
+	 * For the visible columns data is expected for the fields. For the hidden columns content is not expected on the fields.
+	 * @param listItems
+	 * @param displayedColumns
+	 * @throws ReportException
+	 */
 	public void verifyDisplayedColumnsContent(List<PackageItemModel> listItems, String... displayedColumns)
 			throws ReportException {
 
 		List<String> hiddenColumns = new ArrayList<String>();
 
 		// create a list based on all the possible columns
-		for (VisibleColumnsLabels string : VisibleColumnsLabels.values()) {
+		for (PackageVisibleColumnsLabels string : PackageVisibleColumnsLabels.values()) {
 			hiddenColumns.add(string.toString().toLowerCase());
 		}
 
@@ -91,6 +111,15 @@ public class PackageListPage extends AbstractPage {
 
 	}
 
+	/**
+	 * Will verify is a given list has data on a given column. This can be set as expected to have or not through the contentExpected flag.
+	 * Method will perform a soft assert on each element of the list.
+	 * ColumnName will be lowerCased.
+	 * @param listItems
+	 * @param columnName
+	 * @param contentExpected
+	 * @throws ReportException
+	 */
 	public void verifyDisplayColumnContent(List<PackageItemModel> listItems, String columnName,
 			boolean contentExpected) throws ReportException {
 		int counter = 0;

@@ -13,16 +13,25 @@ public class AbstractPage {
 
 	protected Browser browser;
 
+	//will gather all encountered errors in soft assertions
 	private String errorBuffer = "";
 
 	public AbstractPage(Browser browser) {
 		this.browser = browser;
 	}
 
+	/**
+	 * URL navigation. General method
+	 * @param URL
+	 * @throws GeneralLeanFtException
+	 */
 	public void navigateTo(String URL) throws GeneralLeanFtException {
 		browser.navigate(URL);
 	}
 
+	/**
+	 * Wait a longer period for a page to be completely loaded.
+	 */
 	protected void waitForPageToLoad() {
 		int retry = 0;
 
@@ -41,6 +50,12 @@ public class AbstractPage {
 		}
 	}
 
+	/**
+	 * Perform a soft assertion based on a given condition. Message will be displayed in the report step.
+	 * @param message
+	 * @param condition
+	 * @throws ReportException
+	 */
 	public void verifyCondition(String message, boolean condition) throws ReportException {
 		try {
 			if (!Verify.isTrue(condition)) {
@@ -53,6 +68,12 @@ public class AbstractPage {
 		}
 	}
 
+	/**
+	 * Perform a soft assertion based on a given actual.contains(expected). Message will be displayed in the report step.
+	 * @param message
+	 * @param condition
+	 * @throws ReportException
+	 */
 	public void verifyContainsCondition(String message, String expected, String actual) throws ReportException {
 		try {
 			if (!Verify.isTrue(actual.contains(expected))){
@@ -66,6 +87,10 @@ public class AbstractPage {
 		}
 	}
 
+	/**
+	 * Method will mark a test as failed if any soft assertion failures have been encountered during test execution.
+	 * THIS METHOD SHOULD BE INCLUDED IN EVERY TEST {@After} SECTION.
+	 */
 	public void validationErrors() {
 		try {
 			if (errorBuffer.isEmpty() == false) {
