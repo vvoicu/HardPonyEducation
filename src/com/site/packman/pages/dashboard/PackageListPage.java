@@ -10,7 +10,7 @@ import com.hp.lft.sdk.web.WebElement;
 import com.hp.lft.sdk.web.WebElementDescription;
 import com.tools.AbstractPage;
 import com.tools.Constants.VisibleColumnsLabels;
-import com.tools.data.model.DashboardItemModel;
+import com.tools.data.model.PackageItemModel;
 
 public class PackageListPage extends AbstractPage {
 
@@ -20,11 +20,11 @@ public class PackageListPage extends AbstractPage {
 
 	private String generalElementSelector = "table.table__table";
 
-	public List<DashboardItemModel> grabListElements() throws GeneralLeanFtException, CloneNotSupportedException {
+	public List<PackageItemModel> grabListElements() throws GeneralLeanFtException, CloneNotSupportedException {
 
 		WebElement listElement = browser.describe(WebElement.class,
 				new WebElementDescription.Builder().cssSelector(generalElementSelector).build());
-		List<DashboardItemModel> resultList = new ArrayList<DashboardItemModel>();
+		List<PackageItemModel> resultList = new ArrayList<PackageItemModel>();
 
 		WebElement[] listRows = listElement.findChildren(WebElement.class,
 				new WebElementDescription.Builder().cssSelector("tbody tr").build());
@@ -33,7 +33,7 @@ public class PackageListPage extends AbstractPage {
 			WebElement[] rowItems = rowNow.findChildren(WebElement.class,
 					new WebElementDescription.Builder().cssSelector("td").build());
 
-			DashboardItemModel modelNow = new DashboardItemModel();
+			PackageItemModel modelNow = new PackageItemModel();
 
 			for (WebElement rowCell : rowItems) {
 				String currentColumnType = rowCell.getAttribute("data-th");
@@ -65,7 +65,7 @@ public class PackageListPage extends AbstractPage {
 		return resultList;
 	}
 
-	public void verifyDisplayedColumnsContent(List<DashboardItemModel> listItems, String... displayedColumns)
+	public void verifyDisplayedColumnsContent(List<PackageItemModel> listItems, String... displayedColumns)
 			throws ReportException {
 
 		List<String> hiddenColumns = new ArrayList<String>();
@@ -91,13 +91,13 @@ public class PackageListPage extends AbstractPage {
 
 	}
 
-	public void verifyDisplayColumnContent(List<DashboardItemModel> listItems, String columnName,
+	public void verifyDisplayColumnContent(List<PackageItemModel> listItems, String columnName,
 			boolean contentExpected) throws ReportException {
 		int counter = 0;
 		columnName = columnName.toString().toLowerCase();
 		boolean dataNotEmpty = false;
 		String actualContent = "";
-		for (DashboardItemModel itemNow : listItems) {
+		for (PackageItemModel itemNow : listItems) {
 			counter++;
 			if (columnName.contains("name")) {
 				dataNotEmpty = !itemNow.getName().isEmpty();

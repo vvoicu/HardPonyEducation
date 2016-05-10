@@ -16,7 +16,7 @@ import com.site.packman.pages.header.HeaderPage;
 import com.site.packman.pages.header.tabs.ManageVisibleColumnsPage;
 import com.tools.Constants;
 import com.tools.Constants.VisibleColumnsLabels;
-import com.tools.data.model.DashboardItemModel;
+import com.tools.data.model.PackageItemModel;
 import com.tools.utils.PrintUtils;
 
 import unittesting.UnitTestClassBase;
@@ -76,7 +76,7 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 		manageVisibleColumnsPage.clickCloseManageVisibleColumns();
 		
 //		resultList = dashboardPage.grabListElements();
-		List<DashboardItemModel> resultList = packageListPage.grabListElements();
+		List<PackageItemModel> resultList = packageListPage.grabListElements();
 
 		packageListPage.verifyDisplayedColumnsContent(resultList, "description", "name");
 		

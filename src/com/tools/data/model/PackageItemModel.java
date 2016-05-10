@@ -1,6 +1,6 @@
 package com.tools.data.model;
 
-public class DashboardItemModel {
+public class PackageItemModel {
 
 	private String name;
 	private String category;
@@ -9,7 +9,7 @@ public class DashboardItemModel {
 	private String build;
 	private String description;
 	
-	public DashboardItemModel(){
+	public PackageItemModel(){
 		this.name = "";
 		this.category = "";
 		this.readme = "";

@@ -2,17 +2,17 @@ package com.tools.utils;
 
 import java.util.List;
 
-import com.tools.data.model.DashboardItemModel;
+import com.tools.data.model.PackageItemModel;
 
 public class PrintUtils {
 
-	public static void printDashboardItemModelList(List<DashboardItemModel> resultList) {
-		for (DashboardItemModel dashboardItemModel : resultList) {
+	public static void printDashboardItemModelList(List<PackageItemModel> resultList) {
+		for (PackageItemModel dashboardItemModel : resultList) {
 			printDashboardItemModel(dashboardItemModel);
 		}
 	}
 	
-	public static void printDashboardItemModel(DashboardItemModel dashboardItemModel){
+	public static void printDashboardItemModel(PackageItemModel dashboardItemModel){
 		System.out.println("--------------");
 		System.out.println("name: " + dashboardItemModel.getName());
 		System.out.println("category: " + dashboardItemModel.getCategory());
