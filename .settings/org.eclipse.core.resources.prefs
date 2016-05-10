@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/tests/browser/google/BrowserGoogleSearchTest.java=UTF-8
+encoding//src/com/tests/demo/DashboardManageFiltersListTest.java=UTF-8
+encoding//src/com/tests/demo/ReduxDashboardListTest.java=UTF-8
 encoding//src/unittesting/UnitTestClassBase.java=UTF-8

@@ -1,6 +1,5 @@
 package unittesting;
 
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -11,13 +10,14 @@ import com.hp.lft.report.CaptureLevel;
 import com.hp.lft.report.Reporter;
 import com.hp.lft.report.Status;
 import com.hp.lft.sdk.web.Browser;
+import com.hp.lft.sdk.web.BrowserFactory;
 import com.hp.lft.unittesting.UnitTestBase;
+import com.tools.Constants;
+
 
 public class UnitTestClassBase extends UnitTestBase {
 	
-
 	protected Browser browser;
-
     protected static UnitTestClassBase instance;
 
     public static void globalSetup(Class<? extends UnitTestClassBase> testClass) throws Exception {
@@ -28,17 +28,15 @@ public class UnitTestClassBase extends UnitTestBase {
 
     @Before
     public void beforeTest() throws Exception {
-
         testSetup();
         Reporter.setSnapshotCaptureLevel(CaptureLevel.All);
+        //browser initialization
+        browser = BrowserFactory.launch(Constants.BROWSER_TYPE);
     }
 
     @After
     public void afterTest() throws Exception {
         testTearDown();
-        if(browser != null){
-            browser.close();
-        }
     }
 
     public static void globalTearDown() throws Exception {
