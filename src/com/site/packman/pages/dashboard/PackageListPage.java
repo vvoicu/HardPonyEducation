@@ -12,9 +12,9 @@ import com.tools.AbstractPage;
 import com.tools.Constants.VisibleColumnsLabels;
 import com.tools.data.model.DashboardItemModel;
 
-public class PackageManagerListPage extends AbstractPage {
+public class PackageListPage extends AbstractPage {
 
-	public PackageManagerListPage(Browser browser) {
+	public PackageListPage(Browser browser) {
 		super(browser);
 	}
 

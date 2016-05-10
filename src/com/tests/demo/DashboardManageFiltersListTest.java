@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
-import com.site.packman.pages.dashboard.PackageManagerListPage;
+import com.site.packman.pages.dashboard.PackageListPage;
 import com.site.packman.pages.header.HeaderPage;
 import com.site.packman.pages.header.tabs.ManageVisibleColumnsPage;
 import com.tools.Constants.VisibleColumnsLabels;
@@ -22,7 +22,7 @@ import unittesting.UnitTestClassBase;
 
 public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
-	private PackageManagerListPage packageManagerListPage;
+	private PackageListPage packageListPage;
 	private HeaderPage headerPage;
 	private ManageVisibleColumnsPage manageVisibleColumnsPage;
 	
@@ -39,14 +39,14 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
-		packageManagerListPage = new PackageManagerListPage(browser);
+		packageListPage = new PackageListPage(browser);
 		headerPage = new HeaderPage(browser);
 		manageVisibleColumnsPage = new ManageVisibleColumnsPage(browser);
 	}
 	
 	@After
 	public void tearDown() throws GeneralLeanFtException{
-		packageManagerListPage.validationErrors();
+		packageListPage.validationErrors();
         //browser kill
         if(browser != null){
             browser.close();
@@ -55,7 +55,7 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
 	@Test
 	public void reduxDashboardListTest() throws GeneralLeanFtException, CloneNotSupportedException, ReportException {
-		packageManagerListPage.navigateTo("http://172.22.140.89:3000/");
+		packageListPage.navigateTo("http://172.22.140.89:3000/");
 //		List<DashboardItemModel> resultList = dashboardPage.grabListElements();
 		
 //		PrintUtils.printDashboardItemModelList(resultList);
@@ -75,9 +75,9 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 		manageVisibleColumnsPage.clickCloseManageVisibleColumns();
 		
 //		resultList = dashboardPage.grabListElements();
-		List<DashboardItemModel> resultList = packageManagerListPage.grabListElements();
+		List<DashboardItemModel> resultList = packageListPage.grabListElements();
 
-		packageManagerListPage.verifyDisplayedColumnsContent(resultList, "description", "name");
+		packageListPage.verifyDisplayedColumnsContent(resultList, "description", "name");
 		
 //		System.out.println("------ NEGATION --------");
 //		dashboardPage.verifyDisplayedColumnsContent(resultList, "build", "version");

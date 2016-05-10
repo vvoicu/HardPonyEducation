@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
-import com.site.packman.pages.dashboard.PackageManagerListPage;
+import com.site.packman.pages.dashboard.PackageListPage;
 import com.tools.data.model.DashboardItemModel;
 import com.tools.utils.PrintUtils;
 
@@ -19,7 +19,7 @@ import unittesting.UnitTestClassBase;
 
 public class ReduxDashboardListTest extends UnitTestClassBase {
 
-	private PackageManagerListPage packageManagerListPage;
+	private PackageListPage packageListPage;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -34,12 +34,12 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
-		packageManagerListPage = new PackageManagerListPage(browser);
+		packageListPage = new PackageListPage(browser);
 	}
 	
 	@After
 	public void tearDown() throws GeneralLeanFtException{
-		packageManagerListPage.validationErrors();
+		packageListPage.validationErrors();
         //browser kill
         if(browser != null){
             browser.close();
@@ -48,8 +48,8 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 
 	@Test
 	public void reduxDashboardListTest() throws GeneralLeanFtException, CloneNotSupportedException, ReportException {
-		packageManagerListPage.navigateTo("http://172.22.140.89:3000/");
-		List<DashboardItemModel> resultList = packageManagerListPage.grabListElements();
+		packageListPage.navigateTo("http://172.22.140.89:3000/");
+		List<DashboardItemModel> resultList = packageListPage.grabListElements();
 		
 		PrintUtils.printDashboardItemModelList(resultList);
 	}
