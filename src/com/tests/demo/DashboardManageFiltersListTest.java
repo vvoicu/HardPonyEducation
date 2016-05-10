@@ -22,8 +22,8 @@ import unittesting.UnitTestClassBase;
 
 public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
-	private PackageManagerListPage dashboardPage;
-	private HeaderPage dashboardHeaderPage;
+	private PackageManagerListPage packageManagerListPage;
+	private HeaderPage headerPage;
 	private ManageVisibleColumnsPage manageVisibleColumnsPage;
 	
 	@BeforeClass
@@ -39,8 +39,8 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
-		dashboardPage = new PackageManagerListPage(browser);
-		dashboardHeaderPage = new HeaderPage(browser);
+		packageManagerListPage = new PackageManagerListPage(browser);
+		headerPage = new HeaderPage(browser);
 		manageVisibleColumnsPage = new ManageVisibleColumnsPage(browser);
 	}
 	
@@ -54,13 +54,13 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
 	@Test
 	public void reduxDashboardListTest() throws GeneralLeanFtException, CloneNotSupportedException, ReportException {
-		dashboardPage.navigateTo("http://172.22.140.89:3000/");
+		packageManagerListPage.navigateTo("http://172.22.140.89:3000/");
 //		List<DashboardItemModel> resultList = dashboardPage.grabListElements();
 		
 //		PrintUtils.printDashboardItemModelList(resultList);
 		
-		dashboardHeaderPage.clickSettingsButton();
-		dashboardHeaderPage.clickManageVisibleColumnsButton();
+		headerPage.clickSettingsButton();
+		headerPage.clickManageVisibleColumnsButton();
 		
 //		dashboardPage.verifyDisplayedColumnsContent(resultList, "name", "version");
 		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Name);
@@ -74,9 +74,9 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 		manageVisibleColumnsPage.clickCloseManageVisibleColumns();
 		
 //		resultList = dashboardPage.grabListElements();
-		List<DashboardItemModel> resultList = dashboardPage.grabListElements();
+		List<DashboardItemModel> resultList = packageManagerListPage.grabListElements();
 
-		dashboardPage.verifyDisplayedColumnsContent(resultList, "description", "name");
+		packageManagerListPage.verifyDisplayedColumnsContent(resultList, "description", "name");
 		
 //		System.out.println("------ NEGATION --------");
 //		dashboardPage.verifyDisplayedColumnsContent(resultList, "build", "version");
@@ -87,7 +87,7 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 //		resultList = dashboardPage.grabListElements();
 		PrintUtils.printDashboardItemModelList(resultList);
 		
-		dashboardPage.validationErrors();
+		packageManagerListPage.validationErrors();
 		
 	}
 }

@@ -19,7 +19,7 @@ import unittesting.UnitTestClassBase;
 
 public class ReduxDashboardListTest extends UnitTestClassBase {
 
-	private PackageManagerListPage dashboardPage;
+	private PackageManagerListPage packageManagerListPage;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -34,7 +34,7 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
-		dashboardPage = new PackageManagerListPage(browser);
+		packageManagerListPage = new PackageManagerListPage(browser);
 	}
 	
 	@After
@@ -47,8 +47,8 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 
 	@Test
 	public void reduxDashboardListTest() throws GeneralLeanFtException, CloneNotSupportedException, ReportException {
-		dashboardPage.navigateTo("http://172.22.140.89:3000/");
-		List<DashboardItemModel> resultList = dashboardPage.grabListElements();
+		packageManagerListPage.navigateTo("http://172.22.140.89:3000/");
+		List<DashboardItemModel> resultList = packageManagerListPage.grabListElements();
 		
 		PrintUtils.printDashboardItemModelList(resultList);
 	}
