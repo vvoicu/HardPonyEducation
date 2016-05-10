@@ -1,7 +1,6 @@
 package com.site.packman.pages.dashboard;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import com.hp.lft.report.ReportException;
@@ -10,7 +9,6 @@ import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.sdk.web.WebElement;
 import com.hp.lft.sdk.web.WebElementDescription;
 import com.tools.AbstractPage;
-import com.tools.Constants.PackageVisibleColumnsLabels;
 import com.tools.Constants.ResourcesVisibleColumnsLabels;
 import com.tools.data.model.ResourceItemModel;;
 
