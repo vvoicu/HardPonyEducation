@@ -1,4 +1,4 @@
-package com.site.redux.pages;
+package com.site.packman.pages.header.tabs;
 
 import com.hp.lft.report.ReportException;
 import com.hp.lft.report.Reporter;

@@ -1,4 +1,4 @@
-package com.site.redux.pages;
+package com.site.packman.pages.header;
 
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.Browser;
@@ -6,9 +6,9 @@ import com.hp.lft.sdk.web.WebElement;
 import com.hp.lft.sdk.web.WebElementDescription;
 import com.tools.AbstractPage;
 
-public class DashboardHeaderPage extends AbstractPage {
+public class HeaderPage extends AbstractPage {
 
-	public DashboardHeaderPage(Browser browser) {
+	public HeaderPage(Browser browser) {
 		super(browser);
 	}
 

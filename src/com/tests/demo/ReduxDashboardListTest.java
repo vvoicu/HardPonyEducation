@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
-import com.site.redux.pages.DashboardPage;
+import com.site.packman.pages.dashboard.PackageManagerListPage;
 import com.tools.data.model.DashboardItemModel;
 import com.tools.utils.PrintUtils;
 
@@ -19,7 +19,7 @@ import unittesting.UnitTestClassBase;
 
 public class ReduxDashboardListTest extends UnitTestClassBase {
 
-	private DashboardPage dashboardPage;
+	private PackageManagerListPage dashboardPage;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -34,7 +34,7 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
-		dashboardPage = new DashboardPage(browser);
+		dashboardPage = new PackageManagerListPage(browser);
 	}
 	
 	@After

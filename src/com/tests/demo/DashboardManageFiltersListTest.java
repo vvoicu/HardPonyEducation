@@ -11,9 +11,9 @@ import org.junit.Test;
 
 import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
-import com.site.redux.pages.DashboardHeaderPage;
-import com.site.redux.pages.DashboardPage;
-import com.site.redux.pages.ManageVisibleColumnsPage;
+import com.site.packman.pages.dashboard.PackageManagerListPage;
+import com.site.packman.pages.header.HeaderPage;
+import com.site.packman.pages.header.tabs.ManageVisibleColumnsPage;
 import com.tools.Constants.VisibleColumnsLabels;
 import com.tools.data.model.DashboardItemModel;
 import com.tools.utils.PrintUtils;
@@ -22,8 +22,8 @@ import unittesting.UnitTestClassBase;
 
 public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
-	private DashboardPage dashboardPage;
-	private DashboardHeaderPage dashboardHeaderPage;
+	private PackageManagerListPage dashboardPage;
+	private HeaderPage dashboardHeaderPage;
 	private ManageVisibleColumnsPage manageVisibleColumnsPage;
 	
 	@BeforeClass
@@ -39,14 +39,13 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
 	@Before
 	public void setUp() throws Exception {
-		dashboardPage = new DashboardPage(browser);
-		dashboardHeaderPage = new DashboardHeaderPage(browser);
+		dashboardPage = new PackageManagerListPage(browser);
+		dashboardHeaderPage = new HeaderPage(browser);
 		manageVisibleColumnsPage = new ManageVisibleColumnsPage(browser);
 	}
 	
 	@After
 	public void tearDown() throws GeneralLeanFtException{
-		
         //browser kill
         if(browser != null){
             browser.close();

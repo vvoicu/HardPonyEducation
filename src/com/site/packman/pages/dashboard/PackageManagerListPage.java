@@ -1,4 +1,4 @@
-package com.site.redux.pages;
+package com.site.packman.pages.dashboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +12,9 @@ import com.tools.AbstractPage;
 import com.tools.Constants.VisibleColumnsLabels;
 import com.tools.data.model.DashboardItemModel;
 
-public class DashboardPage extends AbstractPage {
+public class PackageManagerListPage extends AbstractPage {
 
-	public DashboardPage(Browser browser) {
+	public PackageManagerListPage(Browser browser) {
 		super(browser);
 	}
 
