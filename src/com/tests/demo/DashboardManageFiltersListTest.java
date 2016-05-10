@@ -15,7 +15,7 @@ import com.site.packman.pages.dashboard.PackageListPage;
 import com.site.packman.pages.header.HeaderPage;
 import com.site.packman.pages.header.tabs.ManageVisibleColumnsPage;
 import com.tools.Constants;
-import com.tools.Constants.VisibleColumnsLabels;
+import com.tools.Constants.PackageVisibleColumnsLabels;
 import com.tools.data.model.PackageItemModel;
 import com.tools.utils.PrintUtils;
 
@@ -65,14 +65,14 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 		headerPage.clickManageVisibleColumnsButton();
 		
 //		dashboardPage.verifyDisplayedColumnsContent(resultList, "name", "version");
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Name);
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Category);
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Description);
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Name);
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Readme);
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Version);
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Description);
-		manageVisibleColumnsPage.clickManageVisibleColumn(VisibleColumnsLabels.Build);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Name);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Category);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Description);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Name);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Readme);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Version);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Description);
+		manageVisibleColumnsPage.clickManageVisibleColumn(PackageVisibleColumnsLabels.Build);
 		manageVisibleColumnsPage.clickCloseManageVisibleColumns();
 		
 //		resultList = dashboardPage.grabListElements();

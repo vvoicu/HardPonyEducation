@@ -1,5 +1,12 @@
 package com.tools.data.model;
 
+
+/**
+ * Model describes items found on the site Dashboard - Package list tab. Constructor of the model will initialize all fields as empty strings.
+ * Fields described in the model should correspond to all posible available columns of the list.
+ * @author vvoicu
+ *
+ */
 public class PackageItemModel {
 
 	private String name;
