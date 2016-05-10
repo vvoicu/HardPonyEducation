@@ -79,7 +79,7 @@ public class PackageListPage extends AbstractPage {
 
 	
 	/**
-	 * The method will build two list of columns: visible and hidden. The hidden list is build based on the VisibleColumnsLabel enum and by excluding expected visible columns.
+	 * The method will build two list of columns: visible and hidden. The hidden list is build based on the {@link PackageVisibleColumnsLabels} enum and by excluding expected visible columns.
 	 * For the visible columns data is expected for the fields. For the hidden columns content is not expected on the fields.
 	 * @param listItems
 	 * @param displayedColumns
