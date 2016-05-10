@@ -14,6 +14,7 @@ import com.hp.lft.sdk.GeneralLeanFtException;
 import com.site.packman.pages.dashboard.PackageListPage;
 import com.site.packman.pages.header.HeaderPage;
 import com.site.packman.pages.header.tabs.ManageVisibleColumnsPage;
+import com.tools.Constants;
 import com.tools.Constants.VisibleColumnsLabels;
 import com.tools.data.model.DashboardItemModel;
 import com.tools.utils.PrintUtils;
@@ -55,7 +56,7 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 
 	@Test
 	public void reduxDashboardListTest() throws GeneralLeanFtException, CloneNotSupportedException, ReportException {
-		packageListPage.navigateTo("http://172.22.140.89:3000/");
+		packageListPage.navigateTo(Constants.BASE_URL);
 //		List<DashboardItemModel> resultList = dashboardPage.grabListElements();
 		
 //		PrintUtils.printDashboardItemModelList(resultList);

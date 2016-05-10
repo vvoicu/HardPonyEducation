@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.site.packman.pages.dashboard.PackageListPage;
+import com.tools.Constants;
 import com.tools.data.model.DashboardItemModel;
 import com.tools.utils.PrintUtils;
 
@@ -48,7 +49,7 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 
 	@Test
 	public void reduxDashboardListTest() throws GeneralLeanFtException, CloneNotSupportedException, ReportException {
-		packageListPage.navigateTo("http://172.22.140.89:3000/");
+		packageListPage.navigateTo(Constants.BASE_URL);
 		List<DashboardItemModel> resultList = packageListPage.grabListElements();
 		
 		PrintUtils.printDashboardItemModelList(resultList);
