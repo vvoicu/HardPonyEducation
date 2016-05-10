@@ -11,7 +11,6 @@ public class PrintUtils {
 			printDashboardItemModel(dashboardItemModel);
 		}
 	}
-
 	
 	public static void printDashboardItemModel(DashboardItemModel dashboardItemModel){
 		System.out.println("--------------");

@@ -48,20 +48,20 @@ public class AbstractPage {
 				errorBuffer += message + "\n";
 			} else
 				Reporter.reportEvent("Verification passed: ", message, Status.Passed);
-			// fail(message);
 		} catch (AssertionError e) {
-			// Reporter.reportEvent("Verification", message, Status.Failed, e);
 			throw e;
 		}
 	}
 
 	public void verifyContainsCondition(String message, String expected, String actual) throws ReportException {
 		try {
-			if (!Verify.isTrue(actual.contains(expected)))
-				fail(message);
+			if (!Verify.isTrue(actual.contains(expected))){
+				Reporter.reportEvent("Verification failure: " + message + " Expected: " + expected + " Actual: " + actual, message + " Expected: " + expected + " Actual: " + actual, Status.Failed);
+				errorBuffer += message + "\n";
+			} else
+				Reporter.reportEvent("Verification passed: ", message + " Expected: " + expected + " Actual: " + actual, Status.Passed);
+				
 		} catch (AssertionError e) {
-			Reporter.reportEvent("Verification", message + " Expected: " + expected + " Actual: " + actual,
-					Status.Failed, e);
 			throw e;
 		}
 	}
