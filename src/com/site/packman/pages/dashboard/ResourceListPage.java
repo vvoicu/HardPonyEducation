@@ -21,6 +21,8 @@ public class ResourceListPage extends AbstractPage {
 	private String resourceTableElementSelector = "table.table__table";
 
 	public List<ResourceItemModel> grabListElements() throws GeneralLeanFtException, CloneNotSupportedException {
+		
+		waitForPageToLoad();
 		WebElement listElement = browser.describe(WebElement.class,
 				new WebElementDescription.Builder().cssSelector(resourceTableElementSelector).build());
 
@@ -36,31 +38,31 @@ public class ResourceListPage extends AbstractPage {
 
 			for (WebElement rowCell : rowItems) {
 				String currentColumnType = rowCell.getAttribute("data-th");
+				
 				if (currentColumnType != null) {
 					currentColumnType = currentColumnType.toLowerCase();
-
-					if (currentColumnType.contains("name")) {
+					
+					if (currentColumnType.contentEquals("name")) {
 						modelNow.setName(rowCell.getInnerText());
 					}
 					if (currentColumnType.contains("extension")) {
-						modelNow.setName(rowCell.getInnerText());
+						modelNow.setExtension(rowCell.getInnerText());
 					}
 					if (currentColumnType.contains("path")) {
-						modelNow.setName(rowCell.getInnerText());
+						modelNow.setPath(rowCell.getInnerText());
 					}
 					if (currentColumnType.contains("version")) {
-						modelNow.setName(rowCell.getInnerText());
+						modelNow.setUcmdbVersion(rowCell.getInnerText());
 					}
 					if (currentColumnType.contains("updated")) {
-						modelNow.setName(rowCell.getInnerText());
+						modelNow.setUpdated(rowCell.getInnerText());
 					}
 					if (currentColumnType.contains("factory")) {
-						modelNow.setName(rowCell.getInnerText());
+						modelNow.setIsFactory(rowCell.getInnerText());
 					}
-					if (currentColumnType.contains("package ")) {
-						modelNow.setName(rowCell.getInnerText());
+					if (currentColumnType.contains("package")) {
+						modelNow.setPackageName(rowCell.getInnerText());
 					}
-
 				}
 			}
 			resultList.add(modelNow);
@@ -110,14 +112,14 @@ public class ResourceListPage extends AbstractPage {
 				dataNotEmpty = !itemNow.getPath().isEmpty();
 				actualContent = itemNow.getPath();
 			} else if (columnName.contains("version")) {
-				dataNotEmpty = !itemNow.getCMDBVersion().isEmpty();
-				actualContent = itemNow.getCMDBVersion();
+				dataNotEmpty = !itemNow.getUcmdbVersion().isEmpty();
+				actualContent = itemNow.getUcmdbVersion();
 			} else if (columnName.contains("updated")) {
 				dataNotEmpty = !itemNow.getUpdated().isEmpty();
 				actualContent = itemNow.getUpdated();
 			} else if (columnName.contains("factory")) {
-				dataNotEmpty = !itemNow.getISFactory().isEmpty();
-				actualContent = itemNow.getISFactory();
+				dataNotEmpty = !itemNow.getIsFactory().isEmpty();
+				actualContent = itemNow.getIsFactory();
 			} else if (columnName.contains("package")) {
 				dataNotEmpty = !itemNow.getPackageName().isEmpty();
 				actualContent = itemNow.getPackageName();

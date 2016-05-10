@@ -52,7 +52,7 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 		packageListPage.navigateTo(Constants.BASE_URL);
 		List<PackageItemModel> resultList = packageListPage.grabListElements();
 		
-		PrintUtils.printDashboardItemModelList(resultList);
+		PrintUtils.printPackageItemModelList(resultList);
 	}
 }
  

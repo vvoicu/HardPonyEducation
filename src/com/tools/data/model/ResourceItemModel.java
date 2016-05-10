@@ -5,18 +5,18 @@ public class ResourceItemModel {
 	private String name;
 	private String extension;
 	private String path;
-	private String uCMDBVersion;
+	private String ucmdbVersion;
 	private String updated;
-	private String iSFactory;
+	private String isFactory;
 	private String packageName;
 
 	public ResourceItemModel() {
 		this.name = "";
 		this.extension = "";
 		this.path = "";
-		this.uCMDBVersion = "";
+		this.ucmdbVersion = "";
 		this.updated = "";
-		this.iSFactory = "";
+		this.isFactory = "";
 		this.packageName = "";
 	}
 
@@ -44,12 +44,12 @@ public class ResourceItemModel {
 		this.path = path;
 	}
 
-	public String getCMDBVersion() {
-		return uCMDBVersion;
+	public String getUcmdbVersion() {
+		return ucmdbVersion;
 	}
 
-	public void setuCMDBVersion(String uCMDBVersion) {
-		this.uCMDBVersion = uCMDBVersion;
+	public void setUcmdbVersion(String ucmdbVersion) {
+		this.ucmdbVersion = ucmdbVersion;
 	}
 
 	public String getUpdated() {
@@ -60,12 +60,12 @@ public class ResourceItemModel {
 		this.updated = updated;
 	}
 
-	public String getISFactory() {
-		return iSFactory;
+	public String getIsFactory() {
+		return isFactory;
 	}
 
-	public void setiSFactory(String iSFactory) {
-		this.iSFactory = iSFactory;
+	public void setIsFactory(String isFactory) {
+		this.isFactory = isFactory;
 	}
 
 	public String getPackageName() {

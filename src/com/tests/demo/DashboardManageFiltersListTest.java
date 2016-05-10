@@ -87,7 +87,7 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 		
 //		System.out.println("-----> After Filter apply");
 //		resultList = dashboardPage.grabListElements();
-		PrintUtils.printDashboardItemModelList(resultList);
+		PrintUtils.printPackageItemModelList(resultList);
 		
 //		packageManagerListPage.validationErrors();
 		
