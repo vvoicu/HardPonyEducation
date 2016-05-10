@@ -1,6 +1,7 @@
 package com.site.packman.pages.dashboard;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import com.hp.lft.report.ReportException;
@@ -9,9 +10,15 @@ import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.sdk.web.WebElement;
 import com.hp.lft.sdk.web.WebElementDescription;
 import com.tools.AbstractPage;
+import com.tools.Constants.PackageVisibleColumnsLabels;
 import com.tools.Constants.ResourcesVisibleColumnsLabels;
 import com.tools.data.model.ResourceItemModel;;
 
+/**
+ * Page contains logic related to the Resources list tab on Package Manager DashBoard page.
+ * @author calinmarchis
+ *
+ */
 public class ResourceListPage extends AbstractPage {
 
 	public ResourceListPage(Browser browser) {
@@ -20,6 +27,12 @@ public class ResourceListPage extends AbstractPage {
 
 	private String resourceTableElementSelector = "table.table__table";
 
+	/**
+	 * Will return a list of {@link ResourceItemModel }. If in some fields of Resources tab there is no content, model fields will be set to empty. 
+	 * @return
+	 * @throws GeneralLeanFtException
+	 * @throws CloneNotSupportedException
+	 */
 	public List<ResourceItemModel> grabListElements() throws GeneralLeanFtException, CloneNotSupportedException {
 		
 		waitForPageToLoad();
@@ -70,6 +83,13 @@ public class ResourceListPage extends AbstractPage {
 		return resultList;
 	}
 
+	/**
+	 * The method will build two list of columns: visible and hidden. The hidden list is build based on the {@link ResourcesVisibleColumnsLabels} enum and by excluding expected visible columns.
+	 * For the visible columns (@param displayedColumns) content is expected on the fields. For the hidden columns content is not expected on the fields.
+	 * @param listItems
+	 * @param displayedColumns
+	 * @throws ReportException
+	 */
 	public void verifyDisplayedResourceColumnsContent(List<ResourceItemModel> listItems, String... displayedColumns)
 			throws ReportException{
 		List<String> hiddenColumns = new ArrayList<String>();
@@ -94,6 +114,14 @@ public class ResourceListPage extends AbstractPage {
 		}
 	}
 
+	/**
+	 * Verify if a given list (list of ResourceItemModel) has data on a given column. Expectation behavior, to contain data or not in column, can be set using boolean contentExpected flag.
+	 * Method will perform a soft assert on each element of the list.
+	 * @param listItems
+	 * @param columnName
+	 * @param contentExpected
+	 * @throws ReportException
+	 */
 	public void verifyDisplayedResourceColumnContent(List<ResourceItemModel> listItems, String columnName,
 			boolean contentExpected) throws ReportException {
 		int counter = 0;
