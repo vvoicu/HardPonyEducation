@@ -51,8 +51,8 @@ public class ListActionsTest extends UnitTestClassBase {
 	public void reduxDashboardListTest() throws GeneralLeanFtException, CloneNotSupportedException, ReportException {
 		headerPage.navigateTo(Constants.BASE_URL);
 		listActionsPage.inputSearchTerm("marklar");
-		listActionsPage.selectFilterBy("name");
-		listActionsPage.selectSortBy("version");
+		listActionsPage.selectFilterBy("Name");
+		listActionsPage.selectSortBy("Version");
 	}
 }
  
