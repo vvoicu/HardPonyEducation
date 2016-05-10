@@ -39,6 +39,7 @@ public class ReduxDashboardListTest extends UnitTestClassBase {
 	
 	@After
 	public void tearDown() throws GeneralLeanFtException{
+		packageManagerListPage.validationErrors();
         //browser kill
         if(browser != null){
             browser.close();
