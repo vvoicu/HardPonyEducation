@@ -13,6 +13,7 @@ public class AbstractPage {
 
 	protected Browser browser;
 
+	//will gather all encountered errors in soft assertions
 	private String errorBuffer = "";
 
 	public AbstractPage(Browser browser) {
@@ -87,7 +88,7 @@ public class AbstractPage {
 	}
 
 	/**
-	 * Method will mark a test as failed if any assertion failures have been encountered during test execution.
+	 * Method will mark a test as failed if any soft assertion failures have been encountered during test execution.
 	 * THIS METHOD SHOULD BE INCLUDED IN EVERY TEST {@After} SECTION.
 	 */
 	public void validationErrors() {
