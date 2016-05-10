@@ -46,6 +46,7 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 	
 	@After
 	public void tearDown() throws GeneralLeanFtException{
+		packageManagerListPage.validationErrors();
         //browser kill
         if(browser != null){
             browser.close();
@@ -87,7 +88,7 @@ public class DashboardManageFiltersListTest extends UnitTestClassBase {
 //		resultList = dashboardPage.grabListElements();
 		PrintUtils.printDashboardItemModelList(resultList);
 		
-		packageManagerListPage.validationErrors();
+//		packageManagerListPage.validationErrors();
 		
 	}
 }
